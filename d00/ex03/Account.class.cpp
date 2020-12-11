@@ -72,5 +72,14 @@ bool	Account::makeWithdrawal(int withdrawal)
 
 void	Account::_displayTimestamp(void)
 {
-	return ;
+	std::time_t	now;
+	std::tm		*ltm;
+	std::string	format;
+	char		buffer[80];
+
+	now = std::time(0);
+	ltm = std::localtime(&now);
+	format = "[%Y%m%d_%I%M%S] ";
+	std::strftime(buffer, 80, format.c_str(), ltm);
+	std::cout << buffer;
 }
