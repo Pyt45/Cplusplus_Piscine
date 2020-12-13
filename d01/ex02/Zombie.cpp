@@ -14,6 +14,5 @@ Zombie::Zombie(std::string name, std::string type)
 
 Zombie::~Zombie()
 {
-	std::cout << "Even though Zombie is dead now nothing to be faired of"
-	<< std::endl;
+	std::cout << "Zombie is dead!" << std::endl;
 }

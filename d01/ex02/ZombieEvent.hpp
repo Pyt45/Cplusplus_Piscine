@@ -8,7 +8,7 @@ class ZombieEvent
 	public:
 		ZombieEvent(void);
 		~ZombieEvent(void);
-		std::string		randomChump();
+		Zombie			*randomChump();
 		std::string		getType(void);
 		Zombie			*newZombie(std::string name);
 		void			setZombieType(std::string type);

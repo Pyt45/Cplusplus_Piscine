@@ -12,20 +12,40 @@ std::string ZombieEvent::getType()
 
 ZombieEvent::ZombieEvent(void)
 {
-	return ;
+	this->_type = "simple Zombie";
+	std::cout << "Zombie on The Stack" << std::endl;
 }
 
 ZombieEvent::~ZombieEvent(void)
 {
-	return ;
+	std::cout << "ZombieEvent is dead!" << std::endl;
 }
 
-Zombie  ZombieEvent::*newZombie(std::string name)
+Zombie  *ZombieEvent::newZombie(std::string name)
 {
-	ZombieEvent	event;
-	std::string type;
+	std::cout << "Zombie on The Heap" << std::endl;
+	Zombie	*new_zombie = new Zombie(name, getType());
+	return new_zombie;
+}
 
-	type = event.getType();
-	Zombie	*new_zombie = new Zombie(name, type);
-	return &new_zombie;
+Zombie	*ZombieEvent::randomChump()
+{
+	// char		generate_name[5];
+	// std::string name;
+
+	// srand(time(NULL));
+	// for (auto i = 0; i < 5; i++)
+	// 	generate_name[i] = char(rand() % 26 + 97);
+	// name = std::string(generate_name, 5);
+	// return name;
+	std::string rand_names[5] = {"Bol", "Duh", "Poll", "Rock", "Pit"};
+	std::string	name;
+	int			r;
+
+	srand(time(NULL));
+	r = rand() % 5;
+	name = rand_names[r];
+	Zombie *New = new Zombie(name, getType());
+	New->announce();
+	return New;
 }
