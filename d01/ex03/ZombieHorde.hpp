@@ -7,12 +7,10 @@ class ZombieHorde
 	public:
 		ZombieHorde(int N);
 		~ZombieHorde(void);
-		Zombie		*randomChump();
-		std::string	getType();
-		void		setTypeZombie(std::string type);
+		void		announce(void);
 	private:
-		std::string	_type;
-		Zombie		*zombie[5];
+		Zombie		*zombies;
+		int			_n;
 };
 
 #endif

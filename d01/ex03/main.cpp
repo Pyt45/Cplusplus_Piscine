@@ -2,5 +2,8 @@
 
 int main()
 {
-    ZombieHorde horde(3);
+    // srand(clock());
+    ZombieHorde *z = new ZombieHorde(5);
+    z->announce();
+    return (0);
 }

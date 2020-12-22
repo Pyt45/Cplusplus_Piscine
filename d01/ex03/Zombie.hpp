@@ -11,10 +11,13 @@ class Zombie
 	public:
 		Zombie(std::string name, std::string type);
 		~Zombie(void);
-		void	announce();
+		void		announce();
+		std::string	randomName();
+		std::string randomType();
+		Zombie();
 	private:
-		std::string type;
-		std::string name;
+		std::string _type;
+		std::string _name;
 };
 
 #endif
