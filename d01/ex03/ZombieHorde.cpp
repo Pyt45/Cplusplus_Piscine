@@ -3,7 +3,7 @@
 ZombieHorde::ZombieHorde(int N)
 {
 	this->_n = N;
-	zombies = new Zombie[N];
+	zombies = new Zombie;
 }
 
 void	ZombieHorde::announce(void)
@@ -21,5 +21,5 @@ void	ZombieHorde::announce(void)
 ZombieHorde::~ZombieHorde()
 {
 	delete [] zombies;
-	std::cout << "All Zombie is dead" << std::endl;
+	std::cout << "All Zombie are dead" << std::endl;
 }
