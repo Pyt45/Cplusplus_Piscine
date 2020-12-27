@@ -1,6 +1,6 @@
 #include "Fixed.class.hpp"
 
-Fixed::Fixed(void)
+Fixed::Fixed(void): _fpnt(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 	return ;
@@ -18,13 +18,13 @@ Fixed& Fixed::operator=(Fixed const & fxd)
 Fixed::Fixed(int const & ipnt)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->setRawBits(ipnt);
+	this->setRawBits(ipnt << this->_fbits);
 }
 
 Fixed::Fixed(float const & fpnt)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->setRawBits(fpnt / (1 << this->_fbits));
+	this->setRawBits(roundf(fpnt * (1 << this->_fbits)));
 }
 
 Fixed::~Fixed(void)
@@ -57,10 +57,10 @@ std::ostream& operator<<(std::ostream& o, Fixed const & fxd)
 
 float		Fixed::toFloat(void) const
 {
-	return roundf(this->getRawBits());
+	return ((float)this->getRawBits() / (1 << this->_fbits));
 }
 
 int			Fixed::toInt(void) const
 {
-	return this->getRawBits();
+	return this->getRawBits() >> this->_fbits;
 }
