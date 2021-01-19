@@ -1,10 +1,9 @@
 #ifndef FRAG_TRAP_HPP
 # define FRAG_TRAP_HPP
 
-# include <iostream>
-# include <ctime>
+# include "ClapTrap.hpp"
 
-class FragTrap
+class FragTrap: public ClapTrap
 {
 	public:
 		FragTrap( void );
@@ -23,11 +22,6 @@ class FragTrap
 		void	ZoroAttack(std::string const & target);
 
 	private:
-		static int	_maxHitPoints;
-		static int	_maxEnergyPoints;
-		static int	_meleeAttackDamage;
-		static int	_rangedAttackDamage;
-		static int	_armorDamageReduction;
 		int			_hitPoints;
 		int			_energyPoints;
 		int			_level;
