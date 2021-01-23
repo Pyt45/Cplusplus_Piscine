@@ -20,19 +20,27 @@ std::string cut_file(std::string filename)
 	return r_file;
 }
 
-void	replace(char *filename, char *s1, char *s2)
+void	replace(std::string filename, std::string s1, std::string s2)
 {
-	std::string	r_file = filename;
 	std::string	w_file;
 	std::string	line;
+	std::size_t	found;
 
-	w_file  = cut_file(r_file);
+	w_file  = cut_file(filename);
 	std::ofstream output_f(w_file);
-	std::ifstream input_f(r_file);
+	std::ifstream input_f(filename);
 
 	while (std::getline(input_f, line))
 	{
-		std::cout << line << std::endl;
+		while (true)
+		{
+			found = line.find(s1);
+			if (found != std::string::npos)
+				line.replace(found, s1.length(), s2);
+			else
+				break ;
+		}
+		output_f << line << std::endl;
 	}
 }
 
