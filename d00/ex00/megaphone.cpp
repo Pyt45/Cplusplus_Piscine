@@ -10,10 +10,10 @@ void	megaphone(char **argv, int argc)
 			std::cout << char(toupper(argv[i][j]));
 		std::cout << ' ';
 	}
-	std::cout<<std::endl;
+	std::cout << std::endl;
 }
 
-auto main(int argc, char **argv) -> int
+int main(int argc, char **argv)
 {
 	if (argc > 1)
 		megaphone(argv, argc);
@@ -21,15 +21,3 @@ auto main(int argc, char **argv) -> int
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
