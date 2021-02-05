@@ -1,17 +1,29 @@
-NAME     := phonebook
-SRCS     := ClassContact.cpp addContact.cpp PrintPhoneBook.cpp main.cpp
-HDRS     := ClassContact.hpp
-OBJS     := $(SRCS:.cpp=.o)
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/02/05 16:35:48 by aaqlzim           #+#    #+#              #
+#    Updated: 2021/02/05 16:35:49 by aaqlzim          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CXX      := g++
-CXXFLAGS := -std=c++98 -Wall -Werror -Wextra
+NAME := phonebook
+
+SRCS := AddContact.cpp ClassContact.cpp PhoneBook.cpp main.cpp
+OBJS := $(SRCS:.cpp=.o)
+HDRS := ClassContact.hpp
+CXX := g++
+CXXFLAGS := -std=c++98 -Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(HDRS)
-	@$(CXX) $(OBJS) -o $@
+	$(CXX) $(OBJS) -o $@
 
-%.o: %.cpp %.hpp
+%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 clean:

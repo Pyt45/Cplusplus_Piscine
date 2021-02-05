@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/05 16:35:45 by aaqlzim           #+#    #+#             */
+/*   Updated: 2021/02/05 16:35:46 by aaqlzim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClassContact.hpp"
 
-void    menu()
+void	start()
 {
-	// std::cout << std::setw(60) << std::endl;
+		// std::cout << std::setw(60) << std::endl;
 	std::cout << "-------------------------------------" << std::endl;
 	// std::cout << std::setw(60) << std::endl;
 	std::cout << "| Welcome to 80s Software Phonebook |" << std::endl;
@@ -19,33 +31,31 @@ void    menu()
 	std::cout << std::endl;
 }
 
-int     main()
+int		main()
 {
-	int			index_contact;
-	contact		Phonebook[MAX_CONTACT];
+	Contact	PhoneBook[MAX_CONTACT];
+	int		i = 0;
 	std::string	cmd;
 
-	index_contact = 0;
-	menu();
-	while (1)
+	start();
+	while (true)
 	{
-		getline(std::cin, cmd, '\n');
+		std::cout << "Enter ur command: ";
+		std::cin >> cmd;
 		if (cmd == "ADD")
 		{
-			if (index_contact < MAX_CONTACT)
-				Phonebook[index_contact++] = addContact();
+			if (i < MAX_CONTACT)
+				PhoneBook[i++] = AddContact();
 			else
-				std::cout << "The phoneBook is fully idiot" << std::endl;
+				std::cout << "PhoneBook is Full" << std::endl;
 		}
 		else if (cmd == "SEARCH")
 		{
-			if (index_contact > 0)
-				PrintPhoneBook(Phonebook, index_contact);
+			if (i >= 0)
+				PrintPhoneBook(PhoneBook, i);
 		}
 		else if (cmd == "EXIT")
 			break ;
-		else if (cmd != "\0")
-			std::cout << "Please Enter a Valid Command" << std::endl;
 	}
 	return 0;
 }

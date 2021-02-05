@@ -1,35 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/30 10:57:35 by aaqlzim           #+#    #+#             */
+/*   Updated: 2021/01/30 11:16:40 by aaqlzim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SCAV_TRAP_HPP
 # define SCAV_TRAP_HPP
 
 # include <iostream>
-# include <ctime>
 
-class ScavTrap
-{
+class ScavTrap {
 	public:
 		ScavTrap( void );
-		ScavTrap( ScavTrap const & src);
 		ScavTrap( std::string const & name );
+		ScavTrap( ScavTrap const & src );
+		ScavTrap & operator=( ScavTrap const & src );
 		~ScavTrap( void );
-
-		ScavTrap& operator=(ScavTrap const & src);
-
-		void	rangedAttack(std::string const & target) const;
-		void	meleeAttack(std::string const & target) const;
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
-		void	challengeNewcomer();
-
+		
+		void		rangedAttack(std::string const & target) const;
+		void		meleeAttack(std::string const & target) const;
+		void		takeDamage(unsigned int amount);
+		void		challengeNewcomer( void );
+		void		beRepaired(unsigned int amount);
+		int			getPoints( void ) const;
 	private:
+		std::string	_name;
+		int			_hitPoints;
 		static int	_maxHitPoints;
+		int 		_energyPoints;
 		static int	_maxEnergyPoints;
+		int 		_level;
 		static int	_meleeAttackDamage;
 		static int	_rangedAttackDamage;
 		static int	_armorDamageReduction;
-		int			_hitPoints;
-		int			_energyPoints;
-		int			_level;
-		std::string	_Name;
 };
 
 #endif

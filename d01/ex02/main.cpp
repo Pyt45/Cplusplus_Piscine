@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/05 16:37:06 by aaqlzim           #+#    #+#             */
+/*   Updated: 2021/02/05 16:37:07 by aaqlzim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ZombieEvent.hpp"
 
 int main()
@@ -17,14 +29,14 @@ int main()
 	delete z2;
 
 	event.setZombieType("CoolZombie");
-	for (auto i = 0; i < 5; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		z[i] = event.newZombie(names[i]);
 		z[i]->announce();
 		delete z[i];
 	}
 	event.setZombieType("UglyZombie");
-	for (auto j = 0; j < 5; j++)
+	for (int j = 0; j < 5; j++)
 	{
 		z[j] = event.randomChump();
 		delete z[j];

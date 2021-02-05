@@ -1,16 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/05 16:38:28 by aaqlzim           #+#    #+#             */
+/*   Updated: 2021/02/05 16:38:29 by aaqlzim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Weapon.hpp"
 
-Weapon::Weapon(std::string tp)
+Weapon::Weapon(std::string type): _type(type)
 {
-    this->type = tp;
+	return ;
 }
 
-void Weapon::setType(std::string type)
+Weapon::Weapon()
 {
-    this->type = type;
+	return ;
 }
 
-const std::string& Weapon::getType() const
+
+Weapon::~Weapon() { return ; }
+
+void	Weapon::setType(std::string type)
 {
-    return this->type;
+	this->_type = type;
+}
+
+std::string const & Weapon::getType() const
+{
+	return this->_type;
 }

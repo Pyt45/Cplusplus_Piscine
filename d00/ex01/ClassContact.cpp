@@ -1,125 +1,126 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClassContact.cpp                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/05 16:35:37 by aaqlzim           #+#    #+#             */
+/*   Updated: 2021/02/05 16:35:38 by aaqlzim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClassContact.hpp"
 
-contact::contact(void) {return ;}
-contact::~contact(void) {return ;}
+Contact::Contact(){ return ; }
+Contact::~Contact(){ return ; }
 
-
-void        contact::setFirstName(std::string str)
+void	Contact::setFirstName(std::string firstName)
 {
-    this->_firstName = str;
-    return ;
+	this->_firstName = firstName;
 }
 
-void        contact::setLastName(std::string str)
+void	Contact::setLastName(std::string lastName)
 {
-    this->_lastName = str;
-    return ;
+	this->_lastName = lastName;
 }
 
-void        contact::setNickName(std::string str)
+void	Contact::setNickName(std::string nickName)
 {
-    this->_nickName = str;
-    return ;
+	this->_nickName = nickName;
 }
 
-void        contact::setLogin(std::string str)
+void	Contact::setLogin(std::string login)
 {
-    this->_login = str;
-    return ;
+	this->_login = login;
 }
 
-void        contact::setPostalAddress(std::string str)
+void	Contact::setPostalAddress(std::string postalAddress)
 {
-    this->_postalAddress = str;
-    return ;
+	this->_postalAddress = postalAddress;
 }
 
-void        contact::setEmailAddress(std::string str)
+void	Contact::setEmailAddress(std::string emailAddress)
 {
-    this->_emailAddress = str;
-    return ;
+	this->_emailAddress = emailAddress;
 }
 
-void        contact::setPhoneNumber(std::string str)
+void	Contact::setPhoneNumber(std::string phoneNumber)
 {
-    this->_phoneNumber = str;
-    return ;
+	this->_phoneNumber = phoneNumber;
 }
 
-void        contact::setBirthdayDate(std::string str)
+void	Contact::setBirthdayDate(std::string birthdayDate)
 {
-    this->_birthdayDate = str;
-    return ;
+	this->_birthdayDate = birthdayDate;
 }
 
-void        contact::setFavoriteMeal(std::string str)
+void	Contact::setFavoriteMeal(std::string favoriteMeal)
 {
-    this->_favoriteMeal = str;
-    return ;
-}
-void        contact::setUnderWearColor(std::string str)
-{
-    this->_underwearColor = str;
-    return ;
+	this->_favoriteMeal = favoriteMeal;
 }
 
-void        contact::setDarkestSecret(std::string str)
+void	Contact::setUnderwearColor(std::string underwearColor)
 {
-    this->_darkestSecret = str;
-    return ;
+	this->_underwearColor = underwearColor;
 }
 
-std::string contact::getFirstName(void)
+void	Contact::setDarkestSecret(std::string darkestSecret)
 {
-    return this->_firstName;
+	this->_darkestSecret = darkestSecret;
 }
 
-std::string contact::getLastName(void)
+std::string Contact::getFirstName()
 {
-    return this->_lastName;
+	return this->_firstName;
 }
 
-std::string contact::getNickName(void)
+std::string Contact::getLastName()
 {
-    return this->_nickName;
+	return this->_lastName;	
 }
 
-std::string contact::getLogin(void)
+std::string Contact::getNickName()
 {
-    return this->_login;
+	return this->_nickName;
 }
 
-std::string contact::getPostalAddress(void)
+std::string Contact::getLogin()
 {
-    return this->_postalAddress;
+	return this->_login;
 }
 
-std::string contact::getEmailAddress(void)
+std::string Contact::getPostalAddress()
 {
-    return this->_emailAddress;
+	return this->_postalAddress;
 }
 
-std::string contact::getPhoneNumber(void)
+std::string Contact::getEmailAddress()
 {
-    return this->_phoneNumber;
+	return this->_emailAddress;
 }
 
-std::string contact::getBirthdayDate(void)
+std::string Contact::getPhoneNumber()
 {
-    return this->_birthdayDate;
+	return this->_phoneNumber;
 }
 
-std::string contact::getFavoriteMeal(void)
+std::string Contact::getBirthdayDate()
 {
-    return this->_favoriteMeal;
+	return this->_birthdayDate;
 }
 
-std::string contact::getUnderWearColor(void)
+std::string Contact::getFavoriteMeal()
 {
-    return this->_underwearColor;
+	return this->_favoriteMeal;
 }
 
-std::string contact::getDarkestSecret(void)
+std::string Contact::getUnderwearColor()
 {
-    return this->_darkestSecret;
+	return this->_underwearColor;
+}
+
+std::string Contact::getDarkestSecret()
+{
+	return this->_darkestSecret;
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ZombieEvent.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/05 16:37:16 by aaqlzim           #+#    #+#             */
+/*   Updated: 2021/02/05 16:37:17 by aaqlzim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ZombieEvent.hpp"
 
 void	ZombieEvent::setZombieType(std::string type)
@@ -12,7 +24,7 @@ std::string ZombieEvent::getType()
 
 ZombieEvent::ZombieEvent(void)
 {
-	this->_type = "simple Zombie";
+	this->_type = "Simple Zombie";
 	std::cout << "Zombie on The Stack" << std::endl;
 }
 
@@ -30,14 +42,6 @@ Zombie  *ZombieEvent::newZombie(std::string name)
 
 Zombie	*ZombieEvent::randomChump()
 {
-	// char		generate_name[5];
-	// std::string name;
-
-	// srand(time(NULL));
-	// for (auto i = 0; i < 5; i++)
-	// 	generate_name[i] = char(rand() % 26 + 97);
-	// name = std::string(generate_name, 5);
-	// return name;
 	std::string rand_names[5] = {"Bol", "Duh", "Poll", "Rock", "Pit"};
 	std::string	name;
 	int			r;

@@ -1,41 +1,53 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClassContact.hpp                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/05 16:35:41 by aaqlzim           #+#    #+#             */
+/*   Updated: 2021/02/05 16:35:42 by aaqlzim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CLASS_CONTACT_HPP
 # define CLASS_CONTACT_HPP
 
 # include <iostream>
+# include <cctype>
 # include <iomanip>
-# include <string>
 
-const int MAX_CONTACT = 8;
-const int MAX_WIDTH = 10;
+const int MAX_CONTACT = 2;
+const int MAX_FIELD = 10;
 
-class contact
-{
+class Contact {
 	public:
-		contact(void);
-		~contact(void);
-		void			setFirstName(std::string);
-		void			setLastName(std::string);
-		void			setNickName(std::string);
-		void			setLogin(std::string);
-		void			setPostalAddress(std::string);
-		void			setEmailAddress(std::string);
-		void			setPhoneNumber(std::string);
-		void			setBirthdayDate(std::string);
-		void			setFavoriteMeal(std::string);
-		void			setUnderWearColor(std::string);
-		void			setDarkestSecret(std::string);
+		Contact();
+		void			setFirstName(std::string firstName);
+		void			setLastName(std::string lastName);
+		void			setNickName(std::string nickName);
+		void			setLogin(std::string login);
+		void			setPostalAddress(std::string postalAddress);
+		void			setEmailAddress(std::string emailAddress);
+		void			setPhoneNumber(std::string phoneNumber);
+		void			setBirthdayDate(std::string birthdayDate);
+		void			setFavoriteMeal(std::string favoriteMeal);
+		void			setUnderwearColor(std::string underwearColor);
+		void			setDarkestSecret(std::string darkestSecret);
 
-		std::string		getFirstName(void);
-		std::string		getLastName(void);
-		std::string		getNickName(void);
-		std::string		getLogin(void);
-		std::string		getPostalAddress(void);
-		std::string		getEmailAddress(void);
-		std::string		getPhoneNumber(void);
-		std::string		getBirthdayDate(void);
-		std::string		getFavoriteMeal(void);
-		std::string		getUnderWearColor(void);
-		std::string		getDarkestSecret(void);
+		std::string		getFirstName();
+		std::string		getLastName();
+		std::string		getNickName();
+		std::string		getLogin();
+		std::string		getPostalAddress();
+		std::string		getEmailAddress();
+		std::string		getPhoneNumber();
+		std::string		getBirthdayDate();
+		std::string		getFavoriteMeal();
+		std::string		getUnderwearColor();
+		std::string		getDarkestSecret();
+
+		~Contact();
 	private:
 		std::string		_firstName;
 		std::string		_lastName;
@@ -50,7 +62,7 @@ class contact
 		std::string		_darkestSecret;
 };
 
-contact					addContact(void);
-void					PrintPhoneBook(contact phoneBook[], int index_contact);
+void		PrintPhoneBook(Contact phonebook[], int index);
+Contact		AddContact();
 
 #endif

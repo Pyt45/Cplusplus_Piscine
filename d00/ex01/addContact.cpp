@@ -1,53 +1,64 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AddContact.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/05 16:35:31 by aaqlzim           #+#    #+#             */
+/*   Updated: 2021/02/05 16:35:34 by aaqlzim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClassContact.hpp"
 
-contact     addContact(void)
-{
-    contact     Contact;
-    std::string buffer;
+Contact AddContact() {
+	std::string input;
+	Contact		contact;
 
-    std::cout << "First Name: ";
-    std::cin >> buffer;
-    Contact.setFirstName(buffer);
+	std::cout << "Enter FirstName: ";
+	std::cin >> input;
+	contact.setFirstName(input);
 
-    std::cout << "Last Name: ";
-    std::cin >> buffer;
-    Contact.setLastName(buffer);
+	std::cout << "Enter LastName: ";
+	std::cin >> input;
+	contact.setLastName(input);
 
-    std::cout << "Nick Name: ";
-    std::cin >> buffer;
-    Contact.setNickName(buffer);
+	std::cout << "Enter NickName: ";
+	std::cin >> input;
+	contact.setNickName(input);
 
-    std::cout << "Login: ";
-    std::cin >> buffer;
-    Contact.setLogin(buffer);
+	std::cout << "Enter Login: ";
+	std::cin >> input;
+	contact.setLogin(input);
 
-    std::cout << "Postal Address: ";
-    std::cin >> buffer;
-    Contact.setPostalAddress(buffer);
+	std::cout << "Enter PostalAddress: ";
+	std::cin >> input;
+	contact.setPostalAddress(input);
 
-    std::cout << "Email Address: ";
-    std::cin >> buffer;
-    Contact.setEmailAddress(buffer);
+	std::cout << "Enter EmailAddress: ";
+	std::cin >> input;
+	contact.setEmailAddress(input);
 
-    std::cout << "Phone Number: ";
-    std::cin >> buffer;
-    Contact.setPhoneNumber(buffer);
+	std::cout << "Enter PhoneNumber: ";
+	std::cin >> input;
+	contact.setPhoneNumber(input);
 
-    std::cout << "Birthday Date: ";
-    std::cin >> buffer;
-    Contact.setBirthdayDate(buffer);
+	std::cout << "Enter BirthdayDate: ";
+	std::cin >> input;
+	contact.setBirthdayDate(input);
 
-    std::cout << "Favorite Meal: ";
-    std::cin >> buffer;
-    Contact.setFavoriteMeal(buffer);
+	std::cout << "Enter FavoriteMeal: ";
+	std::cin >> input;
+	contact.setFavoriteMeal(input);
 
-    std::cout << "Underwear Color: ";
-    std::cin >> buffer;
-    Contact.setUnderWearColor(buffer);
+	std::cout << "Enter UnderwearColor: ";
+	std::cin >> input;
+	contact.setUnderwearColor(input);
 
-    std::cout << "Darkest Secret: ";
-    std::cin >> buffer;
-    Contact.setDarkestSecret(buffer);
-    std::cout << std::endl << "All Done and Saved to PhoneBook.. :)" << std::endl;
-    return (Contact);
+	std::cout << "Enter DarkestSecret: ";
+	std::cin >> input;
+	contact.setDarkestSecret(input);
+	std::cout << "All Done and Saved to PhoneBook.. :)" << std::endl;
+	return contact;
 }
