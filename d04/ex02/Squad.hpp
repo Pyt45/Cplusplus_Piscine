@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 14:30:54 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/05 17:40:26 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/06 12:07:03 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,17 @@ typedef struct 		s_list
 
 class Squad : public ISquad {
 	public:
-		Squad( void );
+		Squad( void ); // Done
 		Squad( Squad const & );
 		Squad & operator=( Squad const & );
-		~Squad( void );
+		~Squad( void ); // Done
 		
-		int 			getCount() const;
-		ISpaceMarine* 	getUnit(int);
-		int 			push(ISpaceMarine*);
+		bool			isAlredyThere(ISpaceMarine *, t_list *); // Done
+		int 			getCount() const; // Done
+		ISpaceMarine* 	getUnit(int) const; // Done
+		int 			push(ISpaceMarine*); // Done
 	private:
-		t_list			*_squad;
+		t_list			*_container;
 		int				_NU;
 };
 
