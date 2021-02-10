@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ISquad.hpp                                         :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/05 14:33:17 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/10 10:39:58 by aaqlzim          ###   ########.fr       */
+/*   Created: 2021/02/10 12:01:51 by aaqlzim           #+#    #+#             */
+/*   Updated: 2021/02/10 15:01:53 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ISQUAD_HPP
-# define ISQUAD_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
-# include "ISpaceMarine.hpp"
+# include "AMateria.hpp"
 
-class ISquad {
+class Cure : public AMateria {
 	public:
-		virtual ~ISquad( void ) {}
-		virtual int getCount() const = 0;
-		virtual ISpaceMarine* getUnit(int) const = 0;
-		virtual int push(ISpaceMarine*) = 0;
+		Cure( void );
+		Cure( Cure const & );
+		Cure & operator=( Cure const & );
+		~Cure( void );
+
+		AMateria* clone() const;
+		void		use(ICharacter& target);
+	private:
+		std::string 	_type;
 };
 
 #endif
