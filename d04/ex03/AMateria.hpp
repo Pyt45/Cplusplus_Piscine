@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 11:49:12 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/10 11:57:37 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/11 15:34:39 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class AMateria {
 		AMateria( std::string const & type );
 		AMateria( AMateria const & );
 		AMateria & operator=( AMateria const & );
-		~AMateria( void );
+		virtual ~AMateria( void );
 
 		std::string const & getType() const;
 		unsigned int getXP() const;

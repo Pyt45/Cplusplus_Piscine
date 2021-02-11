@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 15:44:02 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/10 16:05:08 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/11 15:05:11 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 AMateria::AMateria( void )
 {
 	this->_xp = 0;
-	this->_type = "default";
+	this->_type = "";
 	return ;
 }
 
@@ -35,10 +35,7 @@ AMateria::AMateria( AMateria const & src )
 AMateria & AMateria::operator=( AMateria const & src )
 {
 	if (this != &src)
-	{
 		this->_xp = src._xp;
-		this->_type = src._type;
-	}
 	return *this;
 }
 

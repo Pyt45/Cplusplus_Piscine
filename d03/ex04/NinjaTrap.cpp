@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:47:52 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/03 12:20:15 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/11 16:23:29 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	NinjaTrap::ninjaShoeBox(NinjaTrap const & ninja)
 
 void	NinjaTrap::ninjaShoeBox(ClapTrap const & clap)
 {
+	(void )clap;
 	std::cout << "NINJA-TP: NINJA-TP attacks "
 	<< this->_name << " HEll NINJA" <<std::endl;	
 }
