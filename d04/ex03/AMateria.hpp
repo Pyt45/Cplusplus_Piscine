@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 11:49:12 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/11 15:34:39 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/12 09:51:25 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include "ICharacter.hpp"
+
+class ICharacter;
 
 class AMateria {
 	public:

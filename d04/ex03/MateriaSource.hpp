@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 15:09:22 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/11 18:14:58 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/12 10:28:10 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ class MateriaSource : public IMateriaSource {
 		void learnMateria( AMateria* );
 		AMateria* createMateria( std::string const & type );
 	private:
-		AMateria *_am[4];
+		AMateria **_am;
+		int			_idx;
 };
 
 #endif

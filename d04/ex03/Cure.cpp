@@ -6,15 +6,15 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 15:02:43 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/11 16:25:28 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/12 11:37:41 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure( void )
+Cure::Cure( void ) : AMateria("cure")
 {
-	this->_type = "cure";
+	// this->_type = "cure";
 	return ;
 }
 
@@ -31,7 +31,7 @@ Cure & Cure::operator=( Cure const & src )
 	return *this;
 }
 
-Cure::~Cure( void ) { return ; }
+Cure::~Cure( void ) { ; return ; }
 
 AMateria*	Cure::clone() const
 {

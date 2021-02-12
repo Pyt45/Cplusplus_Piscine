@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 11:53:01 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/11 18:53:07 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/12 11:24:24 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Character : public ICharacter {
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
 	private:
-		AMateria 	*_am[4];
+		AMateria 	**_am;
 		std::string _name;
 		int			_idx;
 };
