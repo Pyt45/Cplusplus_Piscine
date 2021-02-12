@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 11:48:49 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/12 12:51:04 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/12 18:21:51 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <stdexcept>
+
+class Form;
 
 class Bureaucrat {
 	public:
@@ -36,6 +38,7 @@ class Bureaucrat {
 
 		std::string const & getName() const;
 		int					getGrade() const;
+		void				signFrom( Form const & );
 	private:
 		std::string _name;
 		int			_grade;
