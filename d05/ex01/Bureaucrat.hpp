@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 11:48:49 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/12 18:21:51 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/15 14:53:23 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <stdexcept>
+# include "Form.hpp"
 
 class Form;
 

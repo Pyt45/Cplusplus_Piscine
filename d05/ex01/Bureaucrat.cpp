@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 11:49:38 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/12 12:54:50 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/15 17:58:27 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,4 +106,14 @@ std::ostream & operator<<(std::ostream & o, Bureaucrat const & src)
 	std::cout << "<" << src.getName() << ">, bureaucrat grade <"
 	<< src.getGrade() << ">" << std::endl;
 	return o;
+}
+
+void	Bureaucrat::signFrom( Form const & src )
+{
+	if (src.getSignGrade() < this->_grade && src.getSigned() == false)
+		std::cout << this->_name << " signs " << src.getName() << std::endl;
+	else
+		std::cout << "<" << this->_name << "> cannot sign " << "<"
+		<< src.getName() << ">" << " because" << " it has no enaugh grade or it's alredy signed" << std::endl;
+	return ;
 }
