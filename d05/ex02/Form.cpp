@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 15:54:57 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/15 17:54:15 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/16 18:08:48 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ const char * Form::GradeTooHighException::what() const throw()
 const char * Form::GradeTooLowException::what() const throw()
 {
 	return "Grade is too Low";
+}
+
+const char * Form::ExceptionNotSigned::what() const throw()
+{
+	return "Form not Signed, yet";
 }
 
 Form::Form( Form const & src ): _name(src.getName()), _SignGrade(src.getSignGrade()), _ExecGrade(src.getExecGrade())
@@ -84,7 +89,10 @@ void	Form::beSigned( Bureaucrat const & b )
 	if (b.getGrade() > this->_SignGrade)
 		throw GradeTooLowException();
 	else if (this->_IsSigned == false)
+	{
+		set_signed();
 		std::cout << this->_name << " : form Signed" << std::endl;
+	}
 	else if (this->_IsSigned == true)
 		std::cout << this->_name << " can not be Signed because is alredy Signed"
 		<< std::endl;
@@ -96,6 +104,14 @@ void	Form::set_signed()
 	this->_IsSigned = true;
 }
 
+void	Form::execute( Bureaucrat const & executor )
+{
+	if (getSigned() == false)
+		throw Form::ExceptionNotSigned();
+	else if (executor.getGrade() > this->_ExecGrade)
+		throw Form::GradeTooLowException();
+	return ;
+}
 
 std::ostream & operator<<(std::ostream & o, Form const & src)
 {

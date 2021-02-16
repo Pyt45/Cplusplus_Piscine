@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 11:50:57 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/15 18:03:20 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/16 14:29:08 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int main()
 	try {
 		v.beSigned(b);	
 	}
-	catch(std::exception & e){
+	catch(Form::GradeTooLowException & e){
 		std::cout << e.what() << std::endl;
 	}
 
@@ -76,7 +76,7 @@ int main()
 	try {
 		Form f2("locky", 151, -8);
 	}
-	catch(std::exception & e)
+	catch(Form::GradeTooLowException & e)
 	{
 		std::cout << e.what() << std::endl;
 	}
