@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 14:34:31 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/16 16:54:46 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/18 10:27:22 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class PresidentialPardonForm : public Form {
 		PresidentialPardonForm & operator=( PresidentialPardonForm const & );
 		~PresidentialPardonForm( void );
 
-		void				execute( Bureaucrat const & executor );
+		void				execute( Bureaucrat const & executor ) const;
 		std::string const & getTarget() const;
 	private:
 		static const int _exec;

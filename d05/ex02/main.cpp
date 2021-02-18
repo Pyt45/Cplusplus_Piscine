@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 11:50:57 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/16 18:10:11 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/18 09:44:58 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main()
 {
 	Bureaucrat b("Bob", 1);
 	Form *f = new PresidentialPardonForm("Jimmy");
+	std::cout << *f << std::endl;
 	f->beSigned(b);
 	try {
 		f->execute(b);

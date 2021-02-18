@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 12:59:50 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/16 17:59:05 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/18 10:26:26 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ class Form {
 		int const			getSignGrade() const;
 		void				set_signed();
 		void				beSigned( Bureaucrat const & );
-		virtual void		execute( Bureaucrat const & executor );
+		virtual void		execute( Bureaucrat const & executor ) const;
 	private:
 		std::string const 	_name;
 		bool				_IsSigned;

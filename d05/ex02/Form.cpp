@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 15:54:57 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/16 18:08:48 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/18 10:26:43 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	Form::set_signed()
 	this->_IsSigned = true;
 }
 
-void	Form::execute( Bureaucrat const & executor )
+void	Form::execute( Bureaucrat const & executor ) const
 {
 	if (getSigned() == false)
 		throw Form::ExceptionNotSigned();
@@ -116,6 +116,6 @@ void	Form::execute( Bureaucrat const & executor )
 std::ostream & operator<<(std::ostream & o, Form const & src)
 {
 	o << src.getName() << " form is Signed with a SignGrade " << src.getSignGrade() <<
-	" and an ExecGrade" << src.getExecGrade() << " - status : " << src.getSigned() << std::endl;
+	" and an ExecGrade " << src.getExecGrade() << " - status : " << src.getSigned() << std::endl;
 	return o;
 }
