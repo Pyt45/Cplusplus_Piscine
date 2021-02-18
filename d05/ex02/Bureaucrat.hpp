@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 11:48:49 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/15 14:53:23 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/18 16:35:21 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ class Bureaucrat {
 		std::string const & getName() const;
 		int					getGrade() const;
 		void				signFrom( Form const & );
+		void				executeForm(Form const & form);
 	private:
 		std::string _name;
 		int			_grade;

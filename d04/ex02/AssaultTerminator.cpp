@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 10:09:31 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/10 14:48:20 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/18 17:06:39 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ AssaultTerminator::AssaultTerminator( AssaultTerminator const & src )
 
 AssaultTerminator & AssaultTerminator::operator=( AssaultTerminator const & src )
 {
-	(void)src;
+	static_cast<void>(src);
 	return *this;
 }
 
@@ -53,5 +53,5 @@ void	AssaultTerminator::meleeAttack() const
 
 ISpaceMarine* 	AssaultTerminator::clone() const
 {
-	return (new AssaultTerminator);
+	return (new AssaultTerminator(*this));
 }

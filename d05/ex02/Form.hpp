@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 12:59:50 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/18 10:26:26 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/18 16:55:24 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ class Form {
 		virtual ~Form( void ) = 0;
 		std::string const & getName() const;
 		bool				getSigned() const;
-		int const			getExecGrade() const;
-		int const			getSignGrade() const;
+		int					getExecGrade() const;
+		int					getSignGrade() const;
 		void				set_signed();
 		void				beSigned( Bureaucrat const & );
 		virtual void		execute( Bureaucrat const & executor ) const;

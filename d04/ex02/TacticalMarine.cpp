@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 10:16:30 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/10 14:48:05 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/18 17:08:30 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ TacticalMarine::TacticalMarine( TacticalMarine const & src )
 
 TacticalMarine & TacticalMarine::operator=( TacticalMarine const & src )
 {
-	(void)src;
+	static_cast<void>(src);
 	return *this;
 }
 
@@ -53,5 +53,5 @@ void	TacticalMarine::meleeAttack() const
 
 ISpaceMarine* 	TacticalMarine::clone() const
 {
-	return (new TacticalMarine);
+	return (new TacticalMarine(*this));
 }

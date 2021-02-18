@@ -75,10 +75,7 @@ bool	Squad::isAlredyThere(ISpaceMarine *sm, t_list *list)
 	if (sm == NULL)
 		return false;
 	else if (list && sm == list->instance)
-	{
-		std::cout << "1 - Its NULL\n";
 		return false;
-	}
 	else if (list)
 		return isAlredyThere(sm, list->next);
 	return true;

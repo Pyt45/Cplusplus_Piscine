@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 15:51:02 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/18 10:27:10 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/18 16:41:46 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form(target
 
 PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src )
 {
-	static_cast<void>(src);
+	*this = src;
 	return ;
 }
 

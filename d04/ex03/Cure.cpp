@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 15:02:43 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/12 11:37:41 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/18 17:12:04 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ Cure::~Cure( void ) { ; return ; }
 
 AMateria*	Cure::clone() const
 {
-	return (new Cure());
+	return (new Cure);
 }
 
 void	Cure::use(ICharacter & target)

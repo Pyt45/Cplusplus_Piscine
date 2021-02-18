@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 15:51:10 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/18 10:35:33 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/18 16:41:37 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ RobotomyRequestForm::RobotomyRequestForm( std::string target): Form(target, _sig
 
 RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src )
 {
-	static_cast<void>(src);
+	*this = src;
 	return ;
 }
 
@@ -50,5 +50,8 @@ std::string const & RobotomyRequestForm::getTarget() const
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	Form::execute(executor);
-	std::cout << getTarget() << "has been robotomized successfully 50\% of the time";
+	if (rand() & 1)
+		std::cout << getTarget() << "has been robotomized successfully 50\% of the time" << std::endl;
+	else
+		std::cout << getTarget() << " can not be robotomized" << std::endl;
 }

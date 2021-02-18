@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 11:49:38 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/15 17:58:27 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/18 16:37:36 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,4 +116,17 @@ void	Bureaucrat::signFrom( Form const & src )
 		std::cout << "<" << this->_name << "> cannot sign " << "<"
 		<< src.getName() << ">" << " because" << " it has no enaugh grade or it's alredy signed" << std::endl;
 	return ;
+}
+
+void	Bureaucrat::executeForm(Form const & form)
+{
+	try {
+		form.execute(*this);
+		std::cout << this->_name << " executes " << form.getName() << std::endl;
+	}
+	catch(std::exception & e)
+	{
+		std::cout << this->_name << " can not executes because of "
+		<< e.what() << std::endl;
+	}
 }

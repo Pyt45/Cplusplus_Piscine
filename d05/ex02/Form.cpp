@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 15:54:57 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/18 10:26:43 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/18 16:55:34 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,12 @@ bool	Form::getSigned() const
 	return _IsSigned;
 }
 
-int const	Form::getExecGrade() const
+int	Form::getExecGrade() const
 {
 	return this->_ExecGrade;
 }
 
-int const	Form::getSignGrade() const
+int	Form::getSignGrade() const
 {
 	return this->_SignGrade;
 }
