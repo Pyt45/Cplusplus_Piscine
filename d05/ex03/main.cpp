@@ -6,12 +6,13 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 11:50:57 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/18 16:47:48 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/19 16:35:15 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Bureaucrat.hpp"
+#include "Intern.hpp"
 #include "Form.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -19,30 +20,17 @@
 
 int main()
 {
+	Intern 	somRandomIntern;
 	Bureaucrat b("Bob", 1);
-	// Form *f = new PresidentialPardonForm("Jimmy");
-	// std::cout << *f << std::endl;
-	// f->beSigned(b);
-	// try {
-	// 	f->execute(b);
-	// }
-	// catch(std::exception & e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// }
-	// delete f;
+	Form 	*rrf;
 
-	Form *f = new ShrubberyCreationForm("Jimmy");
-	std::cout << *f << std::endl;
-
-	f->beSigned(b);
+	rrf = somRandomIntern.makeForm("robotomy request", "Bender");
+	rrf->beSigned(b);
 	try {
-		f->execute(b);
+		rrf->execute(b);
 	}
-	catch(std::exception & e)
-	{
+	catch(std::exception & e) {
 		std::cout << e.what() << std::endl;
 	}
-	delete f;
 	return 0;
 }
