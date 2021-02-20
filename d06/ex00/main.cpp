@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 16:40:40 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/20 12:58:55 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/20 17:30:40 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <iostream>
 #include <sstream>
 #include <typeinfo>
+#include <limits>
 #include <cstring>
 
 class Base {
@@ -26,9 +27,23 @@ class Base {
 class Drived : public Base {
 	public:
 		virtual void print() const {
-			std::cout << "hellow from Drived class" << std::endl;
+			std::cout << "hello from Drived class" << std::endl;
 		}	
 };
+
+int		toInt(char *argv, int argc)
+{
+	int		num = 0;
+	int		i = 0;
+	while (i < argc)
+	{
+		if (argv[i] >= '0' && argv[i] <= '9')
+			num += argv[i] - 32;
+		i++;
+	}
+
+	return num;
+}
 
 int		main(int argc, char **argv)
 {
@@ -41,6 +56,20 @@ int		main(int argc, char **argv)
 	b->print();
 	std::cout << b << std::endl;
 	std::cout << d << std::endl;
+
+	std::cout << std::boolalpha;
+	std::cout << "int min = " << std::numeric_limits<int>::min() << std::endl;
+	std::cout << "int max = " << std::numeric_limits<int>::max() << std::endl;
+	std::cout << "int has infinity : " << std::numeric_limits<int>::has_infinity << std::endl;
+	std::cout << "double has infinity : " << std::numeric_limits<double>::has_infinity << std::endl;
+	std::cout << "float has infinity : " << std::numeric_limits<float>::has_infinity << std::endl;
+	// Drived d;
+	// Base *b = &d;
+	// Drived *d1 = dynamic_cast<Drived*>(b);
+	
+	// b->print();
+	// d1->print();
+	// auto i = 0;
 	// int a = 42;
 	// int const *c = &a;
 	// int *b = &a;
