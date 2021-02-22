@@ -10,14 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "Scalar.Conversion.hpp"
-#include <iostream>
-#include <sstream>
-#include <typeinfo>
-#include <limits>
-#include <cstring>
+#include "Scalar.Conversion.hpp"
 
-class Base {
+/*class Base {
 	public:
 		virtual void print() const {
 			std::cout << "hello from Base class" << std::endl;
@@ -44,12 +39,86 @@ int		toInt(char *argv, int argc)
 
 	return num;
 }
+*/
+
+void	printChar(ScalarConversion & Scalar, double value)
+{
+	try {
+		std::cout << "char: " << Scalar.convertToChar(value) << std::endl;
+	}
+	catch(std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
+}
+
+void	printInt(ScalarConversion & Scalar, double value)
+{
+	try {
+		std::cout << "int: " << Scalar.convertToInt(value) << std::endl;
+	}
+	catch(std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
+}
+
+void	printFloat(int precision,ScalarConversion & Scalar, double value)
+{
+	try {
+		std::cout << "float: ";
+		std::cout << std::setprecision(precision) << std::fixed
+		<< Scalar.convertToFloat(value) << "f" << std::endl;
+	}
+	catch(std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
+}
+
+void	printDouble(int precision, ScalarConversion & Scalar, double value)
+{
+	try {
+		std::cout << "double: ";
+		std::cout << std::setprecision(precision) << std::fixed
+		<< Scalar.convertToDouble(value) << std::endl;
+	}
+	catch(std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
+}
+
+int		getPrecision(std::string str)
+{
+	int		beforeDot = 0;
+	int		afterDot = 0;
+	int		i = 0;
+
+	while(str[beforeDot] && str[beforeDot] != '.')
+		beforeDot++;
+	afterDot = beforeDot + 1;
+	while (str[afterDot] && isdigit(str[afterDot]))
+		afterDot++;
+	afterDot -= beforeDot;
+	return ((str.length() == beforeDot || afterDot == 1) ? 1 : afterDot - 1);
+}
 
 int		main(int argc, char **argv)
 {
-	static_cast<void>(argc);
-	static_cast<void>(argv);
-	Base *b = new Base();
+	if (argc == 2)
+	{
+		double value = atof(argv[1]);
+		std::cout << value << std::endl;
+		int precision = getPrecision(argv[1]);
+		ScalarConversion Scalar;
+		printChar(Scalar, value);
+		printInt(Scalar, value);
+		printFloat(precision, Scalar, value);
+		printDouble(precision, Scalar, value);
+	}
+	/*double n = atof(argv[1]);
+	std::cout << n << std::endl;
+	std::cout << static_cast<char>(n) << std::endl;
+	std::cout << static_cast<int>(n) << std::endl;
+	std::cout << static_cast<double>(n) << std::endl;*/
+	/*Base *b = new Base();
 	Drived *d = new Drived();
 	b->print();
 	b = dynamic_cast<Drived*>(d);
@@ -62,7 +131,7 @@ int		main(int argc, char **argv)
 	std::cout << "int max = " << std::numeric_limits<int>::max() << std::endl;
 	std::cout << "int has infinity : " << std::numeric_limits<int>::has_infinity << std::endl;
 	std::cout << "double has infinity : " << std::numeric_limits<double>::has_infinity << std::endl;
-	std::cout << "float has infinity : " << std::numeric_limits<float>::has_infinity << std::endl;
+	std::cout << "float has infinity : " << std::numeric_limits<float>::has_infinity << std::endl;*/
 	// Drived d;
 	// Base *b = &d;
 	// Drived *d1 = dynamic_cast<Drived*>(b);
