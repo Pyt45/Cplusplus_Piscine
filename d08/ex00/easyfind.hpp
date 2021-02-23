@@ -2,23 +2,19 @@
 # define EASY_FIND_HPP
 
 # include <iostream>
+# include <vector>
 # include <list>
-#include <vector>
-#include <map>
 # include <stdexcept>
+# include <algorithm>
 
 template<typename T>
-
-int easyfind(T arr, int find)
+int		easyfind(T arr, int find)
 {
 	typename T::iterator it;
-	typename T::iterator eit = arr.end();
 
-	for (it = arr.begin() ; it != eit; it++)
-	{
-		if (*it == find)
-			return 1;
-	}
+	it = std::find(arr.begin(), arr.end(), find);
+	if (it != arr.end())
+		return 1;
 	throw std::exception();
 }
 

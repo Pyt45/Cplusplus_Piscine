@@ -1,36 +1,24 @@
 #include "iter.hpp"
 
-int mult(int a)
+double     mul(int a)
 {
-	a = a * 2;
-	std::cout << a << " ";
-	return a);
+    a *= 2;
+    std::cout << "a * 2 = " << static_cast<double>(a) << std::endl;
+    return static_cast<double>(a);
 }
 
-double mult(double a)
+int     mul(double i)
 {
-	a = a * 2;
-	std::cout << a << " ";
-	return a;
-}
-int div(double a)
-{
-    a = a / 2;
-    std::cout << static_cast<int>(a) << " ";
-    return static_cast<int>(a);
-}
-
-double div(int a)
-{
-    a = a / 2;
-    std::cout << static_cast<double>(a) << " ";
-    return (static_cast<double>(a));
-
+    i *= 2;
+    std::cout << "i * 2 = " << static_cast<int>(i) << std::endl;
+    return static_cast<int>(i);
 }
 
 int main()
 {
-	double arr[5] = {1, 2, 3, 4, 5};
-	iter(arr, 5, static_cast<int (*)(double)>(div));
-	std::cout << std::endl;
+    double arr[6] = {1, 2, 3, 4, 5, 6};
+    int     arr1[6] = {1, 2, 3, 4, 5, 6};
+    ::iter(arr, 6, static_cast<int (*)(double)>(mul));
+    std::cout << "===================================" << std::endl;
+    ::iter(arr1, 6, static_cast<double (*)(int)>(mul));
 }

@@ -4,11 +4,10 @@
 # include <iostream>
 
 template<typename T1, typename T2>
-
-void	iter(T1 *arr, int len, T2 (*func)(T1))
+void    iter(T1 *arr, int size, T2 (*func)(T1))
 {
-	for (int i = 0; i < len; i++)
-		func(arr[i]);
+    for (int i = 0; i < size; i++)
+        func(arr[i]);
 }
 
 #endif
