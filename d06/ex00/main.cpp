@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 16:40:40 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/23 11:01:15 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/23 15:11:51 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	printChar(ScalarConversion & Scalar, double value)
 		std::cout << "'" << Scalar.convertToChar(value) << "'" << std::endl;
 	}
 	catch(std::exception & e) {
+		std::cout << "\b";
 		std::cout << e.what() << std::endl;
 	}
 }
