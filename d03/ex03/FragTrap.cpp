@@ -6,21 +6,29 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:43:45 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/03 11:05:15 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/24 11:34:09 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
 
-FragTrap::FragTrap( void ) : ClapTrap()
+FragTrap::FragTrap( void ) : ClapTrap("default")
 {
-	this->_name = ClapTrap::_name;
+	// this->_name = ClapTrap::_name;
 	std::cout << "\033[1;31mFRAGTRAP: Heheheeee Boooaa CLAPTRAP THE FRAGTRAP, MY NAME IS \033[0m" << "\033[0;32m"
-	<< _name << "\033[0m" << std::endl;
-	_hitPoints = ClapTrap::_maxHitPoints;
-	_energyPoints = ClapTrap::_maxEnergyPoints;
-	_level = ClapTrap::_level;
+	<< ClapTrap::_name << "\033[0m" << std::endl;
+	// _hitPoints = ClapTrap::_maxHitPoints;
+	// _energyPoints = ClapTrap::_maxEnergyPoints;
+	// _level = ClapTrap::_level;
+	_maxHitPoints = 100;
+	_maxEnergyPoints = 100;
+	_level = 1;
+	_hitPoints = _maxHitPoints;
+	_energyPoints = _maxEnergyPoints;
+	_meleeAttackDamage = 30;
+	_rangedAttackDamage = 20;
+	_armorDamageReduction = 5;
 	srand(clock());
 	return ;
 }
@@ -37,9 +45,14 @@ FragTrap::FragTrap( std::string const & name ) : ClapTrap(name)
 	this->_name = name;
 	std::cout << "\033[1;32mHey Everybody! Let's get this party started my name is \033[0m"
 	<< "\033[0;32m" << this->_name << "\033[0m" << std::endl;
-	_hitPoints = ClapTrap::_maxHitPoints;
-	_energyPoints = ClapTrap::_maxEnergyPoints;
-	_level = ClapTrap::_level;
+	_maxHitPoints = 100;
+	_maxEnergyPoints = 100;
+	_level = 1;
+	_hitPoints = _maxHitPoints;
+	_energyPoints = _maxEnergyPoints;
+	_meleeAttackDamage = 30;
+	_rangedAttackDamage = 20;
+	_armorDamageReduction = 5;
 	srand(clock());
 	return ;
 }

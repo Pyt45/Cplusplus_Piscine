@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 15:58:44 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/05 12:28:59 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/24 11:14:36 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,40 +44,3 @@ int main()
 
 	return 0;
 }
-
-// class Base {
-// 	public:
-// 		Base( void ){
-// 			return ;
-// 		}
-// 		Base( std::string const & name ) {
-// 			this->_name = name;
-// 		}
-// 		virtual ~Base( void ){
-// 			return ;
-// 		}
-// 		std::string const & getName(){
-// 			return this->_name;
-// 		}
-// 	protected:
-// 		std::string _name;
-// };
-
-
-// class Drived : public Base {
-// 	public:
-// 		Drived( void ) : Base("Default"){
-// 		}
-// 		Drived( std::string const & name ) : Base(name) {
-// 		}
-// 		~Drived( void ) {
-// 			return ;
-// 		}
-// };
-
-// int main()
-// {
-// 	Base *b = new Drived();
-
-// 	std::cout << b->getName();
-// }

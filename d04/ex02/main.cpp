@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 12:48:10 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/18 17:12:23 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/24 11:13:31 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,12 @@ int main()
 {
 	ISpaceMarine* bob = new TacticalMarine;
 	ISpaceMarine* jim = new AssaultTerminator;
-	ISpaceMarine* jim1 = jim->clone();
+	// ISpaceMarine* jim1 = jim->clone();
 
 	ISquad* vlc = new Squad;
 	vlc->push(bob);
 	vlc->push(jim);
-	vlc->push(jim1);
-	std::cout << vlc->getCount() << std::endl;
+	// vlc->push(jim1);
 	for (int i = 0; i < vlc->getCount(); ++i)
 	{
 		ISpaceMarine* cur = vlc->getUnit(i);

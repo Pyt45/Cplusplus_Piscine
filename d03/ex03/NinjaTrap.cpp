@@ -6,19 +6,23 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:47:52 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/03 11:04:43 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/24 11:35:39 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "NinjaTrap.hpp"
 
-NinjaTrap::NinjaTrap( void ) : ClapTrap()
+NinjaTrap::NinjaTrap( void ) : ClapTrap("default")
 {
-	this->_name = ClapTrap::_name;
 	std::cout << "\033[0;32mNinjaTrap: yo yo everyBody Welcome me am i awesome\033[0m" << std::endl;
-	this->_hitPoints = ClapTrap::_maxHitPoints;
-	this->_energyPoints = ClapTrap::_maxEnergyPoints;
-	this->_level = ClapTrap::_level;
+	_maxHitPoints = 60;
+	_maxEnergyPoints = 120;
+	_level = 1;
+	_hitPoints = _maxHitPoints;
+	_energyPoints = _maxEnergyPoints;
+	_meleeAttackDamage = 60;
+	_rangedAttackDamage = 5;
+	_armorDamageReduction = 0;
 }
 
 NinjaTrap::NinjaTrap( std::string const & name ) : ClapTrap(name)
@@ -26,9 +30,14 @@ NinjaTrap::NinjaTrap( std::string const & name ) : ClapTrap(name)
 	this->_name = name;
 	std::cout << "\033[1;32mHello Moa ha ha ha !!, my name is \033[0m" << "\033[1;31m" << this->_name
 	<< "\033[0m" << std::endl;
-	this->_hitPoints = ClapTrap::_maxHitPoints;
-	this->_energyPoints = ClapTrap::_maxEnergyPoints;
-	this->_level = ClapTrap::_level;
+	_maxHitPoints = 60;
+	_maxEnergyPoints = 120;
+	_level = 1;
+	_hitPoints = _maxHitPoints;
+	_energyPoints = _maxEnergyPoints;
+	_meleeAttackDamage = 60;
+	_rangedAttackDamage = 5;
+	_armorDamageReduction = 0;
 }
 
 NinjaTrap::~NinjaTrap( void )

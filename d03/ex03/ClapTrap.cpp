@@ -1,18 +1,18 @@
 #include "ClapTrap.hpp"
 
-int		ClapTrap::_maxHitPoints = 100;
-int		ClapTrap::_maxEnergyPoints = 50;
-int		ClapTrap::_meleeAttackDamage = 20;
-int		ClapTrap::_rangedAttackDamage = 15;
-int		ClapTrap::_armorDamageReduction = 3;
+// int		ClapTrap::_maxHitPoints = 100;
+// int		ClapTrap::_maxEnergyPoints = 50;
+// int		ClapTrap::_meleeAttackDamage = 20;
+// int		ClapTrap::_rangedAttackDamage = 15;
+// int		ClapTrap::_armorDamageReduction = 3;
 
 ClapTrap::ClapTrap( void )
 {
 	_name = "Default";
 	std::cout << "ClapTrap " << "\033[1;31m" << _name << "\033[0m" <<  " Called" << std::endl;
-	_level = 1;
-	_hitPoints = _maxHitPoints;
-	_energyPoints = _maxEnergyPoints;
+	// _level = 1;
+	// _hitPoints = _maxHitPoints;
+	// _energyPoints = _maxEnergyPoints;
 	return ;
 }
 
@@ -25,10 +25,10 @@ ClapTrap::~ClapTrap( void )
 ClapTrap::ClapTrap( std::string const & name )
 {
 	_name = name;
-	std::cout << "ClapTrap test " << _name <<  "Called" << std::endl;
-	_level = 1;
-	_hitPoints = _maxHitPoints;
-	_energyPoints = _maxEnergyPoints;
+	std::cout << "ClapTrap " << _name <<  " Called" << std::endl;
+	// _level = 1;
+	// _hitPoints = _maxHitPoints;
+	// _energyPoints = _maxEnergyPoints;
 	return ;
 }
 
@@ -47,6 +47,9 @@ ClapTrap & ClapTrap::operator=( ClapTrap const & src )
 		this->_energyPoints = src._energyPoints;
 		this->_hitPoints = src._hitPoints;
 		this->_level = src._level;
+		this->_armorDamageReduction = src._armorDamageReduction;
+		this->_maxHitPoints = src._maxHitPoints;
+		this->_maxEnergyPoints = src._maxEnergyPoints;
 	}
 	return *this;
 }
@@ -94,8 +97,8 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	if (_hitPoints >= 0 && (_hitPoints + amount) <= 100)
 	{
 		_hitPoints += amount;
-		std::cout << "FR4G-TP " << _name << "BeRepaired with "
-		<< amount << "and his life is " << _hitPoints << std::endl;
+		std::cout << "FR4G-TP " << _name << " BeRepaired with "
+		<< amount << " and his life is " << _hitPoints << std::endl;
 	}
 	else if ((_hitPoints + amount) > 100)
 	{

@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 17:08:33 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/05 12:41:43 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/24 11:17:21 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ RadScorpion::~RadScorpion( void )
 {
 	std::cout << "* SPROTCH *" << std::endl;
 	return ;
+}
+
+RadScorpion & RadScorpion::operator=( RadScorpion const & src )
+{
+	static_cast<void>(src);
+	return *this;
 }
 
 RadScorpion::RadScorpion( RadScorpion const & src ) : Enemy(src)

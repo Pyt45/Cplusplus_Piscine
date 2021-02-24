@@ -29,7 +29,6 @@ Squad::Squad ( Squad const & src )
 
 Squad & Squad::operator=( Squad const & src )
 {
-	// t_list	*tmp = _container;
 	t_list  *tmp1 = src._container;
 	if (this != &src)
 	{
@@ -46,17 +45,10 @@ Squad & Squad::operator=( Squad const & src )
 				if (isAlredyThere(tmp1->instance, _container) == true)
 				{
 					delete _container->instance;
-					// Squad::push(tmp1->instance);
-					// this->_container->instance = tmp1->instance;
-					// this->_container->next = tmp1->next;
 					push(tmp1->instance);
 				}
 				else
-				{	
 					push(tmp1->instance);
-					// this->_container->instance = tmp1->instance;
-					// this->_container->next = tmp1->next;
-				}
 			}
 			tmp1 = tmp1->next;
 		}
@@ -73,12 +65,12 @@ int		Squad::getCount() const
 bool	Squad::isAlredyThere(ISpaceMarine *sm, t_list *list)
 {
 	if (sm == NULL)
-		return false;
+		return true;
 	else if (list && sm == list->instance)
-		return false;
+		return true;
 	else if (list)
 		return isAlredyThere(sm, list->next);
-	return true;
+	return false;
 }
 
 ISpaceMarine * Squad::getUnit(int N) const
@@ -98,7 +90,7 @@ ISpaceMarine * Squad::getUnit(int N) const
 
 int		Squad::push(ISpaceMarine *sm)
 {
-	if (sm && isAlredyThere(sm, _container) == true)
+	if (sm && isAlredyThere(sm, _container) == false)
 	{
 		t_list	*last = new(t_list);
 		last->instance = sm;
@@ -113,7 +105,6 @@ int		Squad::push(ISpaceMarine *sm)
 		{
 			while (_container->next)
 				_container = _container->next;
-			// _container->instance = last->instance;
 			_container->next = last;
 		}
 		_NU += 1;
@@ -137,17 +128,7 @@ void	Squad::destroyContainer()
 
 Squad::~Squad( void )
 {
-	// t_list *tmp;
-
-	// while (_container)
-	// {
-	// 	tmp = _container;
-	// 	delete _container->instance;
-	// 	_container = _container->next;
-	// 	delete tmp;
-	// }
 	destroyContainer();
-	// delete _container;
 	return ;
 }
 

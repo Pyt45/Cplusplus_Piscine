@@ -6,21 +6,29 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 11:05:34 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/03 11:05:00 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/02/24 11:32:56 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 
-ScavTrap::ScavTrap( void ) : ClapTrap()
+ScavTrap::ScavTrap( void ) : ClapTrap("default")
 {
-	this->_name = ClapTrap::_name;
-	this->_hitPoints = ClapTrap::_maxHitPoints;
-	this->_energyPoints = ClapTrap::_maxEnergyPoints;
-	this->_level = ClapTrap::_level;
+	// this->_name = ClapTrap::_name;
+	// this->_hitPoints = ClapTrap::_maxHitPoints;
+	// this->_energyPoints = ClapTrap::_maxEnergyPoints;
+	// this->_level = ClapTrap::_level;
+	_maxHitPoints = 100;
+	_maxEnergyPoints = 50;
+	_level = 1;
+	_hitPoints = _maxHitPoints;
+	_energyPoints = _maxEnergyPoints;
+	_meleeAttackDamage = 20;
+	_rangedAttackDamage = 15;
+	_armorDamageReduction = 3;
 	std::cout << "\033[1;32mScavTrap: Hey hey check me out everyBody my name is "
-	<< this->_name << "\033[0m" << std::endl;
+	<< ClapTrap::_name << "\033[0m" << std::endl;
 	srand(clock());
 	return ;
 }
@@ -30,9 +38,14 @@ ScavTrap::ScavTrap( std::string const & name ) : ClapTrap(name)
 	this->_name = name;
 	std::cout << "\033[2;32mScavTrap: Yoooohooo, unce!, !unce, I think I lost the beat but unce!, my name is " 
 	<< this->_name << "\033[0m" << std::endl;
-	this->_hitPoints = ClapTrap::_maxHitPoints;
-	this->_energyPoints = ClapTrap::_maxEnergyPoints;
-	this->_level = ClapTrap::_level;
+	_maxHitPoints = 100;
+	_maxEnergyPoints = 50;
+	_level = 1;
+	_hitPoints = _maxHitPoints;
+	_energyPoints = _maxEnergyPoints;
+	_meleeAttackDamage = 20;
+	_rangedAttackDamage = 15;
+	_armorDamageReduction = 3;
 	srand(clock());
 	return ;
 }
