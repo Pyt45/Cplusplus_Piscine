@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:47:52 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/25 12:25:35 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/25 14:04:26 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,60 +95,4 @@ void	NinjaTrap::ninjaShoeBox(ScavTrap const & scav)
 {
 	std::cout << "NINJA-TP: NINJA-TP attacks " << 
 	this->_name << " WHAT A BADASS NINJA HE IS :)" << std::endl;
-}
-
-void	NinjaTrap::rangedAttack(std::string const & target) const
-{
-	std::cout << "\033[0;32mNINJA-TP <" << this->_name << ">"
-	<< " attacks <" << target << "> at range, causing <"
-	<< _rangedAttackDamage << "> points of damage!\033[0m"
-	<< std::endl; 
-	return ;
-}
-
-void	NinjaTrap::meleeAttack(std::string const & target) const
-{
-	std::cout << "\033[0;32mNINJA-TP Hyah! Heyyah! take That <" << this->_name << ">"
-	<< " attacks <" << target << " ,causing <"
-	<< _meleeAttackDamage << "> points of damage!\033[0m"
-	<< std::endl; 
-	return ;
-}
-
-void	NinjaTrap::takeDamage(unsigned int amount)
-{
-	int		life;
-
-	life = this->_hitPoints + this->_armorDamageReduction - amount;
-	if (life > 0 && this->_hitPoints > 0)
-	{
-		this->_hitPoints = this->_hitPoints + this->_armorDamageReduction - amount;
-		std::cout << "NINJA-TP: " << this->_name << " take damage of "
-		<< amount - this->_armorDamageReduction << " and his life is "
-		<< this->_hitPoints << std::endl;
-	}
-	else
-	{
-		this->_hitPoints = 0;
-		std::cout << "NINJA-TP: Hehehehe, mwaa ha ha ha, MWAA HA HA HA! you are dead!"
-		<< " your life is 0" << std::endl;
-	}
-}
-
-void	NinjaTrap::beRepaired(unsigned int amount)
-{
-	if (this->_hitPoints >= 0 && (this->_hitPoints + amount) <= 100)
-	{
-		this->_hitPoints += amount;
-		std::cout << "NINJA-TP: " << this->_name << " BeRepaired with "
-		<< amount << " and his life is " << this->_hitPoints << std::endl;
-	}
-	else if ((this->_hitPoints + amount) > 100)
-	{
-		std::cout << "NINJA-TP: status " << this->_name << " Can't have more than 100 HP LIFE is "
-		<< this->_hitPoints << std::endl;
-	}
-	else
-		std::cout << "NINJA-TP: Hehehehe, mwaa ha ha ha, MWAA HA HA HA! you are dead!"
-		<< " your life is 0" << std::endl;
 }

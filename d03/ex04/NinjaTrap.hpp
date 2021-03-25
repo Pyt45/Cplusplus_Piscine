@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:47:49 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/25 12:33:04 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/25 13:54:28 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,6 @@ class NinjaTrap : virtual public ClapTrap {
 		void		ninjaShoeBox(ClapTrap const & clap);
 		void		ninjaShoeBox(FragTrap const & frag);
 		void		ninjaShoeBox(ScavTrap const & scav);
-		void		rangedAttack(std::string const & target) const;
-		void		meleeAttack(std::string const & target) const;
-		void		takeDamage(unsigned int amount);
-		void		beRepaired(unsigned int amount);
 	private:
 		std::string		_name;
 };

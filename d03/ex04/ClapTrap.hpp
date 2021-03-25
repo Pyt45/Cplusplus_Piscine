@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 10:49:36 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/25 12:22:06 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/25 13:58:40 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class ClapTrap {
 		
 		virtual void	rangedAttack(std::string const & target) const;
 		virtual void	meleeAttack(std::string const & target) const;
-		virtual void	takeDamage(unsigned int amount);
-		virtual void	beRepaired(unsigned int amount);
+		void	takeDamage(unsigned int amount);
+		void	beRepaired(unsigned int amount);
 	protected:
 		std::string		_name;
 		unsigned int _hitPoints;

@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 09:52:20 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/10 10:08:29 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/25 14:02:41 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,6 @@ int main()
 	scav.rangedAttack(target[0]);
 	std::cout << "\n";
 	scav.challengeNewcomer();
-	std::cout << "\n";
-	// Clap
-	clap.beRepaired(15);
-	std::cout << "\n";
-	clap.takeDamage(15);
-	std::cout << "\n";
-	clap.rangedAttack(target[0]);
-	std::cout << "\n";
-	clap.meleeAttack(target[2]);
 	std::cout << "\n";
 	// Ninja
 	ninja.beRepaired(15);

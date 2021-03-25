@@ -15,8 +15,8 @@ ClapTrap::~ClapTrap( void )
 
 ClapTrap::ClapTrap( std::string const & name )
 {
-	_name = name;
-	std::cout << "ClapTrap test " << _name <<  " Called" << std::endl;
+	this->_name = name;
+	std::cout << "ClapTrap " << _name <<  " is born and Ready" << std::endl;
 	return ;
 }
 
@@ -46,61 +46,56 @@ ClapTrap & ClapTrap::operator=( ClapTrap const & src )
 
 void	ClapTrap::rangedAttack(std::string const & target) const
 {
-	// std::cout << "\033[0;32mClapTrap <" << _name << ">"
-	// << " attacks <" << target << "> at range, causing <"
-	// << _rangedAttackDamage << "> points of damage!\033[0m"
-	// << std::endl; 
-	std::cout << "ClapTrap can not attacks with rangedAttack" << std::endl;
+	std::cout << "\033[0;32mClapTrap <" << _name << ">"
+	<< " attacks <" << target << "> at range, causing <"
+	<< _rangedAttackDamage << "> points of damage!\033[0m"
+	<< std::endl; 
 	return ;
 }
 
 void	ClapTrap::meleeAttack(std::string const & target) const
 {
-	// std::cout << "\033[0;32mClapTrap Hyah! Heyyah! take That <" << _name << ">"
-	// << " attacks <" << target << " ,causing <"
-	// << _meleeAttackDamage << "> points of damage!\033[0m"
-	// << std::endl;
-	std::cout << "ClapTrap can not attacks with meleeAttack" << std::endl;
+	std::cout << "\033[0;32mClapTrap Hyah! Heyyah! take That <" << _name << ">"
+	<< " attacks <" << target << ">" << " ,causing <"
+	<< _meleeAttackDamage << "> points of damage!\033[0m"
+	<< std::endl;
 	return ;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	// int		life;
+	unsigned int		life;
 
-	// life = _hitPoints + _armorDamageReduction - amount;
-	// if (life > 0 && _hitPoints > 0)
-	// {
-	// 	_hitPoints = _hitPoints + _armorDamageReduction - amount;
-	// 	std::cout << _name << " take damage of "
-	// 	<< amount - _armorDamageReduction << " and his life is "
-	// 	<< _hitPoints << std::endl;
-	// }
-	// else
-	// {
-	// 	_hitPoints = 0;
-	// 	std::cout << "Hehehehe, mwaa ha ha ha, MWAA HA HA HA! you are dead!"
-	// 	<< " your life is 0" << std::endl;
-	// }
-
-	std::cout << "ClapTrap can not take Damage" << std::endl;
+	life = _hitPoints + _armorDamageReduction - amount;
+	if (life > 0 && _hitPoints > 0)
+	{
+		_hitPoints = _hitPoints + _armorDamageReduction - amount;
+		std::cout << _name << " take damage of "
+		<< amount - _armorDamageReduction << " and his life is "
+		<< _hitPoints << std::endl;
+	}
+	else
+	{
+		_hitPoints = 0;
+		std::cout << "Hehehehe, mwaa ha ha ha, MWAA HA HA HA! you are dead!"
+		<< " your life is 0" << std::endl;
+	}
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	// if (_hitPoints >= 0 && (_hitPoints + amount) <= 100)
-	// {
-	// 	_hitPoints += amount;
-	// 	std::cout << "FR4G-TP " << _name << "BeRepaired with "
-	// 	<< amount << "and his life is " << _hitPoints << std::endl;
-	// }
-	// else if ((_hitPoints + amount) > 100)
-	// {
-	// 	std::cout << "FR4G-TP " << _name << "Can't have more than 100 HP LIFE is "
-	// 	<< _hitPoints << std::endl;
-	// }
-	// else
-	// 	std::cout << "Hehehehe, mwaa ha ha ha, MWAA HA HA HA! you are dead!"
-	// 	<< " your life is 0" << std::endl;
-	std::cout << "ClapTrap can not be Repaired" << std::endl;
+	if (_hitPoints >= 0 && (_hitPoints + amount) <= 100)
+	{
+		_hitPoints += amount;
+		std::cout << "FR4G-TP " << _name << " BeRepaired with "
+		<< amount << " and his life is " << _hitPoints << std::endl;
+	}
+	else if ((_hitPoints + amount) > 100)
+	{
+		std::cout << "FR4G-TP " << _name << " Can't have more than 100 HP LIFE is "
+		<< _hitPoints << std::endl;
+	}
+	else
+		std::cout << "Hehehehe, mwaa ha ha ha, MWAA HA HA HA! you are dead!"
+		<< " your life is 0" << std::endl;
 }

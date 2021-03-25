@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 18:50:23 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/25 12:32:03 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/25 14:04:09 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,57 +78,10 @@ SuperTrap & SuperTrap::operator=( SuperTrap const & src )
 
 void	SuperTrap::rangedAttack(std::string const & target) const
 {
-	std::cout << "\033[0;32mSuperTrap <" << _name << ">"
-	<< " attacks <" << target << "> at range, causing <"
-	<< _rangedAttackDamage << "> points of damage!\033[0m"
-	<< std::endl; 
-	return ;
+	FragTrap::rangedAttack(target);
 }
 
 void	SuperTrap::meleeAttack(std::string const & target) const
 {
-	std::cout << "\033[0;32mSuperTrap Hyah! Heyyah! take That <" << _name << ">"
-	<< " attacks <" << target << "> ,causing <"
-	<< _meleeAttackDamage << "> points of damage!\033[0m"
-	<< std::endl; 
-	return ;
-}
-
-
-void	SuperTrap::takeDamage(unsigned int amount)
-{
-	int		life;
-
-	life = _hitPoints + _armorDamageReduction - amount;
-	if (life > 0 && _hitPoints > 0)
-	{
-		_hitPoints = _hitPoints + _armorDamageReduction - amount;
-		std::cout << "SP4G-TP: " << _name << " take damage of "
-		<< amount - _armorDamageReduction << " and his life is "
-		<< _hitPoints << std::endl;
-	}
-	else
-	{
-		_hitPoints = 0;
-		std::cout << "SP4G-TP: Hehehehe, mwaa ha ha ha, MWAA HA HA HA! you are dead!"
-		<< " your life is 0" << std::endl;
-	}
-}
-
-void	SuperTrap::beRepaired(unsigned int amount)
-{
-	if (_hitPoints >= 0 && (_hitPoints + amount) <= 100)
-	{
-		_hitPoints += amount;
-		std::cout << "SP4G-TP " << _name << "BeRepaired with "
-		<< amount << "and his life is " << _hitPoints << std::endl;
-	}
-	else if ((_hitPoints + amount) > 100)
-	{
-		std::cout << "SP4G-TP " << _name << " Can't have more than 100 HP LIFE is "
-		<< _hitPoints << std::endl;
-	}
-	else
-		std::cout << "SP4G-TP: Hehehehe, mwaa ha ha ha, MWAA HA HA HA! you are dead!"
-		<< " your life is 0" << std::endl;
+	NinjaTrap::meleeAttack(target);
 }

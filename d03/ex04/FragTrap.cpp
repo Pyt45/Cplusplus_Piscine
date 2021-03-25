@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:43:45 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/25 12:23:53 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/25 14:04:33 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,60 +126,4 @@ void	FragTrap::blightBotAttack(std::string const & target)
 {
 	std::cout << "Tell me I'm the prettiest! Hack the planet!, Activating good cop mode... " << this->_name << " attacks " << 
 	target << " causing 10 points of damage" << std::endl;
-}
-
-void	FragTrap::rangedAttack(std::string const & target) const
-{
-	std::cout << "\033[0;32mFR4G-TP <" << this->_name << ">"
-	<< " attacks <" << target << "> at range, causing <"
-	<< _rangedAttackDamage << "> points of damage!\033[0m"
-	<< std::endl; 
-	return ;
-}
-
-void	FragTrap::meleeAttack(std::string const & target) const
-{
-	std::cout << "\033[0;32mFR4G-TP Hyah! Heyyah! take That <" << this->_name << ">"
-	<< " attacks <" << target << " ,causing <"
-	<< _meleeAttackDamage << "> points of damage!\033[0m"
-	<< std::endl; 
-	return ;
-}
-
-void	FragTrap::takeDamage(unsigned int amount)
-{
-	int		life;
-
-	life = this->_hitPoints + this->_armorDamageReduction - amount;
-	if (life > 0 && this->_hitPoints > 0)
-	{
-		this->_hitPoints = this->_hitPoints + this->_armorDamageReduction - amount;
-		std::cout << "FR4G-TP: " << this->_name << " take damage of "
-		<< amount - this->_armorDamageReduction << " and his life is "
-		<< this->_hitPoints << std::endl;
-	}
-	else
-	{
-		this->_hitPoints = 0;
-		std::cout << "FR4G-TP: Hehehehe, mwaa ha ha ha, MWAA HA HA HA! you are dead!"
-		<< " your life is 0" << std::endl;
-	}
-}
-
-void	FragTrap::beRepaired(unsigned int amount)
-{
-	if (this->_hitPoints >= 0 && (this->_hitPoints + amount) <= 100)
-	{
-		this->_hitPoints += amount;
-		std::cout << "FR4G-TP: " << this->_name << " BeRepaired with "
-		<< amount << "and his life is " << this->_hitPoints << std::endl;
-	}
-	else if ((this->_hitPoints + amount) > 100)
-	{
-		std::cout << "FR4G-TP: " << this->_name << " Can't have more than 100 HP LIFE is "
-		<< this->_hitPoints << std::endl;
-	}
-	else
-		std::cout << "FR4G-TP: Hehehehe, mwaa ha ha ha, MWAA HA HA HA! you are dead!"
-		<< " your life is 0" << std::endl;
 }
