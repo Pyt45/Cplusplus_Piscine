@@ -1,18 +1,9 @@
 #include "ClapTrap.hpp"
 
-// int		ClapTrap::_maxHitPoints = 100;
-// int		ClapTrap::_maxEnergyPoints = 50;
-// int		ClapTrap::_meleeAttackDamage = 20;
-// int		ClapTrap::_rangedAttackDamage = 15;
-// int		ClapTrap::_armorDamageReduction = 3;
-
 ClapTrap::ClapTrap( void )
 {
 	_name = "Default";
 	std::cout << "ClapTrap " << "\033[1;31m" << _name << "\033[0m" <<  " Called" << std::endl;
-	// _level = 1;
-	// _hitPoints = _maxHitPoints;
-	// _energyPoints = _maxEnergyPoints;
 	return ;
 }
 
@@ -26,9 +17,6 @@ ClapTrap::ClapTrap( std::string const & name )
 {
 	_name = name;
 	std::cout << "ClapTrap " << _name <<  " Called" << std::endl;
-	// _level = 1;
-	// _hitPoints = _maxHitPoints;
-	// _energyPoints = _maxEnergyPoints;
 	return ;
 }
 
@@ -44,12 +32,14 @@ ClapTrap & ClapTrap::operator=( ClapTrap const & src )
 	if (this != &src)
 	{
 		this->_name = src._name;
+		this->_maxEnergyPoints = src._maxEnergyPoints;
+		this->_maxHitPoints = src._maxHitPoints;
+		this->_armorDamageReduction = src._armorDamageReduction;
+		this->_meleeAttackDamage = src._meleeAttackDamage;
+		this->_rangedAttackDamage = src._rangedAttackDamage;
 		this->_energyPoints = src._energyPoints;
 		this->_hitPoints = src._hitPoints;
 		this->_level = src._level;
-		this->_armorDamageReduction = src._armorDamageReduction;
-		this->_maxHitPoints = src._maxHitPoints;
-		this->_maxEnergyPoints = src._maxEnergyPoints;
 	}
 	return *this;
 }
@@ -66,7 +56,7 @@ void	ClapTrap::rangedAttack(std::string const & target) const
 void	ClapTrap::meleeAttack(std::string const & target) const
 {
 	std::cout << "\033[0;32mClapTrap Hyah! Heyyah! take That <" << _name << ">"
-	<< " attacks <" << target << " ,causing <"
+	<< " attacks <" << target << ">" << " ,causing <"
 	<< _meleeAttackDamage << "> points of damage!\033[0m"
 	<< std::endl; 
 	return ;
@@ -108,4 +98,9 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	else
 		std::cout << "Hehehehe, mwaa ha ha ha, MWAA HA HA HA! you are dead!"
 		<< " your life is 0" << std::endl;
+}
+
+std::string ClapTrap::getName(void) const
+{
+	return this->_name;
 }

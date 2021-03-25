@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:43:45 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/03 11:03:11 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/25 11:28:23 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,14 @@ FragTrap::FragTrap( void ) : ClapTrap()
 	this->_name = ClapTrap::_name;
 	std::cout << "\033[1;31mFRAGTRAP: Heheheeee Boooaa CLAPTRAP THE FRAGTRAP, MY NAME IS \033[0m" << "\033[0;32m"
 	<< _name << "\033[0m" << std::endl;
-	_hitPoints = ClapTrap::_maxHitPoints;
-	_energyPoints = ClapTrap::_maxEnergyPoints;
-	_level = ClapTrap::_level;
+	ClapTrap::_maxHitPoints = 100;
+	ClapTrap::_energyPoints = 100;
+	ClapTrap::_hitPoints = ClapTrap::_maxHitPoints;
+	ClapTrap::_maxEnergyPoints = ClapTrap::_energyPoints;
+	ClapTrap::_level = 1;
+	ClapTrap::_meleeAttackDamage = 30;
+	ClapTrap::_rangedAttackDamage = 20;
+	ClapTrap::_armorDamageReduction = 5;
 	srand(clock());
 	return ;
 }
@@ -37,9 +42,14 @@ FragTrap::FragTrap( std::string const & name ) : ClapTrap(name)
 	this->_name = name;
 	std::cout << "\033[1;32mHey Everybody! Let's get this party started my name is \033[0m"
 	<< "\033[0;32m" << this->_name << "\033[0m" << std::endl;
-	_hitPoints = ClapTrap::_maxHitPoints;
-	_energyPoints = ClapTrap::_maxEnergyPoints;
-	_level = ClapTrap::_level;
+	ClapTrap::_maxHitPoints = 100;
+	ClapTrap::_energyPoints = 100;
+	ClapTrap::_hitPoints = ClapTrap::_maxHitPoints;
+	ClapTrap::_maxEnergyPoints = ClapTrap::_energyPoints;
+	ClapTrap::_level = 1;
+	ClapTrap::_meleeAttackDamage = 30;
+	ClapTrap::_rangedAttackDamage = 20;
+	ClapTrap::_armorDamageReduction = 5;
 	srand(clock());
 	return ;
 }
@@ -52,11 +62,15 @@ FragTrap::FragTrap( FragTrap const & src ) : ClapTrap(src)
 	return ;
 }
 
-FragTrap & FragTrap::operator=( FragTrap const & src )
-{
+FragTrap & FragTrap::operator=( FragTrap const & src ) {
 	if (this != &src)
 	{
 		this->_name = src._name;
+		this->_maxEnergyPoints = src._maxEnergyPoints;
+		this->_maxHitPoints = src._maxHitPoints;
+		this->_armorDamageReduction = src._armorDamageReduction;
+		this->_meleeAttackDamage = src._meleeAttackDamage;
+		this->_rangedAttackDamage = src._rangedAttackDamage;
 		this->_energyPoints = src._energyPoints;
 		this->_hitPoints = src._hitPoints;
 		this->_level = src._level;
@@ -83,7 +97,7 @@ void  FragTrap::vaulthunter_dot_exe(std::string const & target)
 		(this->*ptr[r])(target);
 	}
 	else
-		std::cout << "\033[1;32mFRAGTRAP: " << _name << " has not enaugh enery points\033[0m" << std::endl;
+		std::cout << "\033[1;32mFRAGTRAP: " << _name << " has no enaugh enery points\033[0m" << std::endl;
 }
 
 
@@ -96,7 +110,7 @@ void	FragTrap::gunWizardAttack(std::string const & target)
 
 void	FragTrap::lazerAttack(std::string const & target)
 {
-	std::cout << "Boogie time! Everybody, dance time! Da-da-da-dun-daaa-da-da-da-dun-daaa!" << this->_name << " attacks " << 
+	std::cout << "Boogie time! Everybody, dance time! Da-da-da-dun-daaa-da-da-da-dun-daaa! " << this->_name << " attacks " << 
 	target << " causing 10 points of damage" << std::endl;
 }
 

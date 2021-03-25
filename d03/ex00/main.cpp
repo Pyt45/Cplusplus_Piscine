@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 09:52:20 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/01/30 09:52:24 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/25 10:32:55 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int main()
 	alex.beRepaired(10);
 	alex.takeDamage(90);
 	alex.takeDamage(5);
+	
 	alex.vaulthunter_dot_exe("Robot  number 2");
 	alex.vaulthunter_dot_exe("Robot  number 2");
 	alex.vaulthunter_dot_exe("Robot  number 2");

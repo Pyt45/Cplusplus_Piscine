@@ -1,18 +1,9 @@
 #include "ClapTrap.hpp"
 
-int		ClapTrap::_maxHitPoints = 100;
-int		ClapTrap::_maxEnergyPoints = 50;
-int		ClapTrap::_meleeAttackDamage = 20;
-int		ClapTrap::_rangedAttackDamage = 15;
-int		ClapTrap::_armorDamageReduction = 3;
-
 ClapTrap::ClapTrap( void )
 {
-	_name = "Default";
+	_name = "Clap";
 	std::cout << "ClapTrap " << "\033[1;31m" << _name << "\033[0m" <<  " Called" << std::endl;
-	_level = 1;
-	_hitPoints = _maxHitPoints;
-	_energyPoints = _maxEnergyPoints;
 	return ;
 }
 
@@ -26,9 +17,6 @@ ClapTrap::ClapTrap( std::string const & name )
 {
 	_name = name;
 	std::cout << "ClapTrap test " << _name <<  " Called" << std::endl;
-	_level = 1;
-	_hitPoints = _maxHitPoints;
-	_energyPoints = _maxEnergyPoints;
 	return ;
 }
 
@@ -44,6 +32,11 @@ ClapTrap & ClapTrap::operator=( ClapTrap const & src )
 	if (this != &src)
 	{
 		this->_name = src._name;
+		this->_maxEnergyPoints = src._maxEnergyPoints;
+		this->_maxHitPoints = src._maxHitPoints;
+		this->_armorDamageReduction = src._armorDamageReduction;
+		this->_meleeAttackDamage = src._meleeAttackDamage;
+		this->_rangedAttackDamage = src._rangedAttackDamage;
 		this->_energyPoints = src._energyPoints;
 		this->_hitPoints = src._hitPoints;
 		this->_level = src._level;

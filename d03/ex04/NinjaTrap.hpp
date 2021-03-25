@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:47:49 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/10 10:06:04 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/25 12:33:04 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,6 @@ class NinjaTrap : virtual public ClapTrap {
 		void		beRepaired(unsigned int amount);
 	private:
 		std::string		_name;
-		int				_hitPoints;
-		int				_energyPoints;
-		int				_level;
 };
 
 #endif

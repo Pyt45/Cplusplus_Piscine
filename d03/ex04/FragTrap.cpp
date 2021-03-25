@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:43:45 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/03 12:20:02 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/25 12:23:53 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,14 @@ FragTrap::FragTrap( void ) : ClapTrap()
 	this->_name = ClapTrap::_name;
 	std::cout << "\033[1;31mFRAGTRAP: Heheheeee Boooaa CLAPTRAP THE FRAGTRAP, MY NAME IS \033[0m" << "\033[0;32m"
 	<< _name << "\033[0m" << std::endl;
-	_hitPoints = ClapTrap::_maxHitPoints;
-	_energyPoints = ClapTrap::_maxEnergyPoints;
-	_level = ClapTrap::_level;
+	ClapTrap::_maxHitPoints = 100;
+	ClapTrap::_maxEnergyPoints = 100;
+	ClapTrap::_level = 1;
+	ClapTrap::_hitPoints = _maxHitPoints;
+	ClapTrap::_energyPoints = _maxEnergyPoints;
+	ClapTrap::_meleeAttackDamage = 30;
+	ClapTrap::_rangedAttackDamage = 20;
+	ClapTrap::_armorDamageReduction = 5;
 	srand(clock());
 	return ;
 }
@@ -37,9 +42,14 @@ FragTrap::FragTrap( std::string const & name ) : ClapTrap(name)
 	this->_name = name;
 	std::cout << "\033[1;32mHey Everybody! Let's get this party started my name is \033[0m"
 	<< "\033[0;32m" << this->_name << "\033[0m" << std::endl;
-	_hitPoints = ClapTrap::_maxHitPoints;
-	_energyPoints = ClapTrap::_maxEnergyPoints;
-	_level = ClapTrap::_level;
+	ClapTrap::_maxHitPoints = 100;
+	ClapTrap::_maxEnergyPoints = 100;
+	ClapTrap::_level = 1;
+	ClapTrap::_hitPoints = _maxHitPoints;
+	ClapTrap::_energyPoints = _maxEnergyPoints;
+	ClapTrap::_meleeAttackDamage = 30;
+	ClapTrap::_rangedAttackDamage = 20;
+	ClapTrap::_armorDamageReduction = 5;
 	srand(clock());
 	return ;
 }

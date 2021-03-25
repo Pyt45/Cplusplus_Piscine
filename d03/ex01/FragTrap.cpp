@@ -6,17 +6,13 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:43:45 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/01 10:09:36 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/25 11:29:20 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-int		FragTrap::_maxHitPoints = 100;
-int		FragTrap::_maxEnergyPoints = 100;
-int		FragTrap::_meleeAttackDamage = 30;
-int		FragTrap::_rangedAttackDamage = 20;
-int		FragTrap::_armorDamageReduction = 5;
+
 
 
 FragTrap::FragTrap( void )
@@ -24,6 +20,11 @@ FragTrap::FragTrap( void )
 	this->_name = "Default";
 	std::cout << "\033[1;31mHeheheeee Boooaa CLAPTRAP THE FRAGTRAP, MY NAME IS \033[0m" << "\033[0;32m"
 	<< _name << "\033[0m" << std::endl;
+	_maxHitPoints = 100;
+	_maxEnergyPoints = 100;
+	_meleeAttackDamage = 30;
+	_rangedAttackDamage = 20;
+	_armorDamageReduction = 5;
 	_hitPoints = _maxHitPoints;
 	_energyPoints = _maxEnergyPoints;
 	_level = 1;
@@ -41,6 +42,11 @@ FragTrap::FragTrap( std::string const & name )
 	this->_name = name;
 	std::cout << "\033[1;32mHey Everybody! Let's get this party started my name is \033[0m"
 	<< "\033[0;32m" << this->_name << "\033[0m" << std::endl;
+	_maxHitPoints = 100;
+	_maxEnergyPoints = 100;
+	_meleeAttackDamage = 30;
+	_rangedAttackDamage = 20;
+	_armorDamageReduction = 5;
 	_hitPoints = _maxHitPoints;
 	_energyPoints = _maxEnergyPoints;
 	_level = 1;
@@ -50,9 +56,9 @@ FragTrap::FragTrap( std::string const & name )
 
 FragTrap::FragTrap( FragTrap const & src )
 {
-	std::cout << "\033[1;32Recompiling my combat code! This time i will be awesome, I promise and my name is \033[0m"
-	<< "\033[0;32m" << this->_name << "\033[0m" << std::endl;
 	*this = src;
+	std::cout << "\033[1;32mRecompiling my combat code! This time i will be awesome, I promise and my name is \033[0m"
+	<< "\033[0;32m" << this->_name << "\033[0m" << std::endl;
 	return ;
 }
 
@@ -61,6 +67,11 @@ FragTrap & FragTrap::operator=( FragTrap const & src )
 	if (this != &src)
 	{
 		this->_name = src._name;
+		this->_maxEnergyPoints = src._maxEnergyPoints;
+		this->_maxHitPoints = src._maxHitPoints;
+		this->_armorDamageReduction = src._armorDamageReduction;
+		this->_meleeAttackDamage = src._meleeAttackDamage;
+		this->_rangedAttackDamage = src._rangedAttackDamage;
 		this->_energyPoints = src._energyPoints;
 		this->_hitPoints = src._hitPoints;
 		this->_level = src._level;
@@ -102,7 +113,7 @@ void	FragTrap::rangedAttack(std::string const & target) const
 void	FragTrap::meleeAttack(std::string const & target) const
 {
 	std::cout << "\033[0;32mFR4G-TP Hyah! Heyyah! take That <" << this->_name << ">"
-	<< " attacks <" << target << " ,causing <"
+	<< " attacks <" << target << ">" << " ,causing <"
 	<< _meleeAttackDamage << "> points of damage!\033[0m"
 	<< std::endl; 
 	return ;
@@ -110,7 +121,7 @@ void	FragTrap::meleeAttack(std::string const & target) const
 
 void	FragTrap::takeDamage(unsigned int amount)
 {
-	int		life;
+	unsigned int		life;
 
 	life = this->_hitPoints + this->_armorDamageReduction - amount;
 	if (life > 0 && this->_hitPoints > 0)
@@ -133,12 +144,12 @@ void	FragTrap::beRepaired(unsigned int amount)
 	if (this->_hitPoints >= 0 && (this->_hitPoints + amount) <= 100)
 	{
 		this->_hitPoints += amount;
-		std::cout << "FR4G-TP " << this->_name << "BeRepaired with "
-		<< amount << "and his life is " << this->_hitPoints << std::endl;
+		std::cout << "FR4G-TP " << this->_name << " BeRepaired with "
+		<< amount << " and his life is " << this->_hitPoints << std::endl;
 	}
 	else if ((this->_hitPoints + amount) > 100)
 	{
-		std::cout << "FR4G-TP " << this->_name << "Can't have more than 100 HP LIFE is "
+		std::cout << "FR4G-TP " << this->_name << " Can't have more than 100 HP LIFE is "
 		<< this->_hitPoints << std::endl;
 	}
 	else
@@ -152,14 +163,14 @@ void	FragTrap::gunWizardAttack(std::string const & target)
 	target << " causing 5 points of damage" << std::endl;
 }
 
-int		FragTrap::getPoints( void ) const
+unsigned int		FragTrap::getPoints( void ) const
 {
 	return this->_hitPoints;	
 }
 
 void	FragTrap::lazerAttack(std::string const & target)
 {
-	std::cout << "Boogie time! Everybody, dance time! Da-da-da-dun-daaa-da-da-da-dun-daaa!" << this->_name << " attacks " << 
+	std::cout << "Boogie time! Everybody, dance time! Da-da-da-dun-daaa-da-da-da-dun-daaa! " << this->_name << " attacks " << 
 	target << " causing 10 points of damage" << std::endl;
 }
 

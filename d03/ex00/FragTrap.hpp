@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:41:57 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/01/30 08:45:36 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/25 10:24:29 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ class FragTrap {
 		int					getPoints( void ) const;
 	private:
 		std::string	_name;
-		int			_hitPoints;
-		static int	_maxHitPoints;
-		int 		_energyPoints;
-		static int	_maxEnergyPoints;
-		int 		_level;
-		static int	_meleeAttackDamage;
-		static int	_rangedAttackDamage;
-		static int	_armorDamageReduction;
+		unsigned int _hitPoints;
+		unsigned int _maxHitPoints;
+		unsigned int _energyPoints;
+		unsigned int _maxEnergyPoints;
+		unsigned int _level;
+		unsigned int _meleeAttackDamage;
+		unsigned int _rangedAttackDamage;
+		unsigned int _armorDamageReduction;
 		// random function so that we can use them with vaulthunter_dot_exe
 		void		blightBotAttack(std::string const & target);
 		void		gunWizardAttack(std::string const & target);

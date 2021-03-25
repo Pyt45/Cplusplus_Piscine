@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 09:52:20 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/24 11:39:14 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/25 12:16:46 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 
 int main()
 {
-	FragTrap	frag;
-	ScavTrap	scav;
-	ClapTrap	clap;
+	FragTrap	frag("Frogy");
+	ScavTrap	scav("Rockly");
+	ClapTrap	*clap = new ScavTrap("Samoray");
+	ClapTrap	clap1;
 	NinjaTrap	ninja("Ninja115");
+	NinjaTrap	ninja1("Ninja112");
 
 	std::string target[3] = {
 		"\033[1;31mRobot number 1\033[0m",
@@ -28,7 +30,7 @@ int main()
 		"\033[1;31mRobot number 3\033[0m"
 	};
 
-	// Ninja
+	// // Ninja
 	ninja.beRepaired(15);
 	std::cout << "\n";
 	ninja.takeDamage(15);
@@ -43,11 +45,11 @@ int main()
 	std::cout << "\n";
 
 	std::cout << "\n";
-	ninja.ninjaShoeBox(clap);
+	ninja.ninjaShoeBox(clap1);
 	std::cout << "\n";
 	
 	std::cout << "\n";
-	ninja.ninjaShoeBox(ninja);
+	ninja.ninjaShoeBox(ninja1);
 	std::cout << "\n";
 
 	// Frag
@@ -69,10 +71,10 @@ int main()
 	scav.challengeNewcomer();
 	std::cout << "\n";
 	// Clap
-	clap.beRepaired(15);
+	clap->beRepaired(15);
 	std::cout << "\n";
-	clap.takeDamage(15);
+	clap->takeDamage(15);
 	std::cout << "\n";
-	clap.rangedAttack(target[0]);
+	clap->rangedAttack(target[0]);
 	std::cout << "\n";
 }

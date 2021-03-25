@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 10:49:36 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/03 12:09:16 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/25 12:22:06 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ class ClapTrap {
 		virtual void	beRepaired(unsigned int amount);
 	protected:
 		std::string		_name;
-		int				_hitPoints;
-		static int		_maxHitPoints;
-		int 			_energyPoints;
-		static int		_maxEnergyPoints;
-		int 			_level;
-		static int		_meleeAttackDamage;
-		static int		_rangedAttackDamage;
-		static int		_armorDamageReduction;
+		unsigned int _hitPoints;
+		unsigned int _maxHitPoints;
+		unsigned int _energyPoints;
+		unsigned int _maxEnergyPoints;
+		unsigned int _level;
+		unsigned int _meleeAttackDamage;
+		unsigned int _rangedAttackDamage;
+		unsigned int _armorDamageReduction;
 };
 
 #endif

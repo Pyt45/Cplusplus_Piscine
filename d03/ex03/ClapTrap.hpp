@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 10:49:36 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/24 11:29:04 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/25 11:47:13 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class ClapTrap {
 		void		meleeAttack(std::string const & target) const;
 		void		takeDamage(unsigned int amount);
 		void		beRepaired(unsigned int amount);
+
+		std::string getName(void) const;
 	protected:
 		std::string	_name;
 		unsigned int	_hitPoints;

@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 18:50:21 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/10 09:56:30 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/25 12:33:07 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ class SuperTrap : public FragTrap, public NinjaTrap {
 		void		beRepaired(unsigned int amount);
 	private:
 		std::string		_name;
-		int				_hitPoints;
-		static int		_maxHitPoints;
-		int				_energyPoints;
-		static int		_maxEnergyPoints;
-		int				_level;
-		static int		_meleeAttackDamage;
-		static int		_rangedAttackDamage;
-		static int		_armorDamageReduction;
+		unsigned int _hitPoints;
+		unsigned int _maxHitPoints;
+		unsigned int _energyPoints;
+		unsigned int _maxEnergyPoints;
+		unsigned int _level;
+		unsigned int _meleeAttackDamage;
+		unsigned int _rangedAttackDamage;
+		unsigned int _armorDamageReduction;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 10:57:35 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/01/30 11:16:40 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/25 10:43:33 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@ class ScavTrap {
 		void		takeDamage(unsigned int amount);
 		void		challengeNewcomer( void );
 		void		beRepaired(unsigned int amount);
-		int			getPoints( void ) const;
+		unsigned int	getPoints( void ) const;
 	private:
 		std::string	_name;
-		int			_hitPoints;
-		static int	_maxHitPoints;
-		int 		_energyPoints;
-		static int	_maxEnergyPoints;
-		int 		_level;
-		static int	_meleeAttackDamage;
-		static int	_rangedAttackDamage;
-		static int	_armorDamageReduction;
+		unsigned int _hitPoints;
+		unsigned int _maxHitPoints;
+		unsigned int _energyPoints;
+		unsigned int _maxEnergyPoints;
+		unsigned int _level;
+		unsigned int _meleeAttackDamage;
+		unsigned int _rangedAttackDamage;
+		unsigned int _armorDamageReduction;
 };
 
 #endif

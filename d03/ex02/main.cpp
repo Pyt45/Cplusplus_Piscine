@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 09:52:20 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/03 11:03:41 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/25 11:22:20 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 int main()
 {
-	FragTrap	frag;
-	ScavTrap	scav;
-	ClapTrap	clap;
+	FragTrap	frag("Samoray");
+	ScavTrap	scav("Ninja");
+	ClapTrap	*clap = new FragTrap("Rockly");
 
 	std::string target[3] = {
 		"\033[1;31mRobot number 1\033[0m",
@@ -45,11 +45,11 @@ int main()
 	scav.challengeNewcomer();
 	std::cout << "\n";
 	// Clap
-	clap.beRepaired(15);
+	clap->beRepaired(15);
 	std::cout << "\n";
-	clap.takeDamage(15);
+	clap->takeDamage(15);
 	std::cout << "\n";
-	clap.rangedAttack(target[0]);
+	clap->rangedAttack(target[0]);
 	std::cout << "\n";
-
+	delete clap;
 }

@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 10:57:35 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/10 10:02:45 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/25 12:26:28 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,6 @@ class ScavTrap: public ClapTrap {
 		void		beRepaired(unsigned int amount);
 	private:
 		std::string	_name;
-		int			_hitPoints;
-		int 		_energyPoints;
-		int 		_level;
 };
 
 #endif
