@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:43:45 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/25 11:29:20 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/27 17:17:12 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,9 +121,11 @@ void	FragTrap::meleeAttack(std::string const & target) const
 
 void	FragTrap::takeDamage(unsigned int amount)
 {
-	unsigned int		life;
-
-	life = this->_hitPoints + this->_armorDamageReduction - amount;
+	long int life = 0;
+	if (static_cast<long int>(this->_hitPoints) + static_cast<long int>(this->_armorDamageReduction) - static_cast<long int>(amount) < 0)
+		life = 0;
+	else
+		life = static_cast<long int>(this->_hitPoints) + static_cast<long int>(this->_armorDamageReduction) - static_cast<long int>(amount);
 	if (life > 0 && this->_hitPoints > 0)
 	{
 		this->_hitPoints = this->_hitPoints + this->_armorDamageReduction - amount;
@@ -149,6 +151,7 @@ void	FragTrap::beRepaired(unsigned int amount)
 	}
 	else if ((this->_hitPoints + amount) > 100)
 	{
+		this->_hitPoints = 100;
 		std::cout << "FR4G-TP " << this->_name << " Can't have more than 100 HP LIFE is "
 		<< this->_hitPoints << std::endl;
 	}

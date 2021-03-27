@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 11:05:34 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/25 11:29:25 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/27 17:27:21 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,11 @@ void	ScavTrap::meleeAttack(std::string const & target) const
 
 void	ScavTrap::takeDamage(unsigned int amount)
 {
-	unsigned int		life;
-
-	life = this->_hitPoints + this->_armorDamageReduction - amount;
+	long int life = 0;
+	if (static_cast<long int>(this->_hitPoints) + static_cast<long int>(this->_armorDamageReduction) - static_cast<long int>(amount) < 0)
+		life = 0;
+	else
+		life = static_cast<long int>(this->_hitPoints) + static_cast<long int>(this->_armorDamageReduction) - static_cast<long int>(amount);
 	if (life > 0 && this->_hitPoints > 0)
 	{
 		this->_hitPoints = this->_hitPoints + this->_armorDamageReduction - amount;

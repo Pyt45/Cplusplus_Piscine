@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:43:45 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/25 14:04:33 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/27 17:31:27 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,4 +126,9 @@ void	FragTrap::blightBotAttack(std::string const & target)
 {
 	std::cout << "Tell me I'm the prettiest! Hack the planet!, Activating good cop mode... " << this->_name << " attacks " << 
 	target << " causing 10 points of damage" << std::endl;
+}
+
+std::string FragTrap::getName(void) const
+{
+	return this->_name;
 }

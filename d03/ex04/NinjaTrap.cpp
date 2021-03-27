@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:47:52 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/25 14:04:26 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/27 17:32:42 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,24 +75,28 @@ NinjaTrap & NinjaTrap::operator=( NinjaTrap const & src )
 void	NinjaTrap::ninjaShoeBox(NinjaTrap const & ninja)
 {
 	std::cout << "NINJA-TP: NINJA-TP attacks "
-	<< this->_name << " with a fork while he is eating" << std::endl;
+	<< ninja.getName() << " with a fork while he is eating" << std::endl;
 }
 
 void	NinjaTrap::ninjaShoeBox(ClapTrap const & clap)
 {
-	(void )clap;
 	std::cout << "NINJA-TP: NINJA-TP attacks "
-	<< this->_name << " HEll NINJA" <<std::endl;	
+	<< clap.getName() << " HEll NINJA" <<std::endl;	
 }
 
 void	NinjaTrap::ninjaShoeBox(FragTrap const & frag)
 {
 	std::cout << "NINJA-TP: NINJA-TP attacks " 
-	<< this->_name << " Live Long Ninja, death to FR4G-TP" << std::endl;
+	<< frag.getName() << " Live Long Ninja, death to FR4G-TP" << std::endl;
 }
 
 void	NinjaTrap::ninjaShoeBox(ScavTrap const & scav)
 {
 	std::cout << "NINJA-TP: NINJA-TP attacks " << 
-	this->_name << " WHAT A BADASS NINJA HE IS :)" << std::endl;
+	scav.getName() << " WHAT A BADASS NINJA HE IS :)" << std::endl;
+}
+
+std::string NinjaTrap::getName(void) const
+{
+	return this->_name;
 }

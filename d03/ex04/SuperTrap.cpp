@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 18:50:23 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/25 14:04:09 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/27 17:32:07 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ SuperTrap::~SuperTrap( void )
 
 SuperTrap::SuperTrap( SuperTrap const & src ) : ClapTrap(src), FragTrap(), NinjaTrap()
 {
+	*this = src;
 	std::cout << "\033[1;32SP4G-TP: SuperTrap Recompiling combat code!\033[0m"
 	<< std::endl;
-	*this = src;
 	return ;
 }
 

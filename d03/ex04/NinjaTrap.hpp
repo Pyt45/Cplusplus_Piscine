@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:47:49 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/25 13:54:28 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/27 17:30:31 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class NinjaTrap : virtual public ClapTrap {
 		NinjaTrap( NinjaTrap const & src );
 		NinjaTrap & operator=( NinjaTrap const & src );		
 		~NinjaTrap( void );
+		std::string getName(void) const;
 		void		ninjaShoeBox(NinjaTrap const & ninja);
 		void		ninjaShoeBox(ClapTrap const & clap);
 		void		ninjaShoeBox(FragTrap const & frag);

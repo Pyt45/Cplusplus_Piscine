@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 14:12:07 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/25 14:12:16 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/27 17:31:17 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,12 @@ void	ClapTrap::meleeAttack(std::string const & target) const
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	unsigned int		life;
-
-	life = _hitPoints + _armorDamageReduction - amount;
-	if (life > 0 && _hitPoints > 0)
+	long int life = 0;
+	if (static_cast<long int>(this->_hitPoints) + static_cast<long int>(this->_armorDamageReduction) - static_cast<long int>(amount) < 0)
+		life = 0;
+	else
+		life = static_cast<long int>(this->_hitPoints) + static_cast<long int>(this->_armorDamageReduction) - static_cast<long int>(amount);
+	if (life > 0 && this->_hitPoints > 0)
 	{
 		_hitPoints = _hitPoints + _armorDamageReduction - amount;
 		std::cout << _name << " take damage of "
@@ -88,7 +90,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	}
 	else
 	{
-		_hitPoints = 0;
+		this->_hitPoints = 0;
 		std::cout << "Hehehehe, mwaa ha ha ha, MWAA HA HA HA! you are dead!"
 		<< " your life is 0" << std::endl;
 	}
@@ -104,10 +106,16 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	}
 	else if ((_hitPoints + amount) > 100)
 	{
+		this->_hitPoints = 100;
 		std::cout << "FR4G-TP " << _name << " Can't have more than 100 HP LIFE is "
 		<< _hitPoints << std::endl;
 	}
 	else
 		std::cout << "Hehehehe, mwaa ha ha ha, MWAA HA HA HA! you are dead!"
 		<< " your life is 0" << std::endl;
+}
+
+std::string ClapTrap::getName(void) const
+{
+	return this->_name;
 }

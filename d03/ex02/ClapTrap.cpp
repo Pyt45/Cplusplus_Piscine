@@ -64,9 +64,11 @@ void	ClapTrap::meleeAttack(std::string const & target) const
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	unsigned int		life;
-
-	life = _hitPoints + _armorDamageReduction - amount;
+	long int life = 0;
+	if (static_cast<long int>(this->_hitPoints) + static_cast<long int>(this->_armorDamageReduction) - static_cast<long int>(amount) < 0)
+		life = 0;
+	else
+		life = static_cast<long int>(this->_hitPoints) + static_cast<long int>(this->_armorDamageReduction) - static_cast<long int>(amount);
 	if (life > 0 && _hitPoints > 0)
 	{
 		_hitPoints = _hitPoints + _armorDamageReduction - amount;
@@ -92,6 +94,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	}
 	else if ((_hitPoints + amount) > 100)
 	{
+		this->_hitPoints = 100;
 		std::cout << "FR4G-TP " << _name << " Can't have more than 100 HP LIFE is "
 		<< _hitPoints << std::endl;
 	}

@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:43:45 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/25 11:29:31 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/27 17:15:22 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ FragTrap::FragTrap( FragTrap const & src )
 	<< "\033[0;32m" << this->_name << "\033[0m" << std::endl;
 	return ;
 }
-
 FragTrap & FragTrap::operator=( FragTrap const & src )
 {
 	if (this != &src)
@@ -118,9 +117,11 @@ void	FragTrap::meleeAttack(std::string const & target) const
 
 void	FragTrap::takeDamage(unsigned int amount)
 {
-	unsigned int		life;
-
-	life = this->_hitPoints + this->_armorDamageReduction - amount;
+	long int life = 0;
+	if (static_cast<long int>(this->_hitPoints) + static_cast<long int>(this->_armorDamageReduction) - static_cast<long int>(amount) < 0)
+		life = 0;
+	else
+		life = static_cast<long int>(this->_hitPoints) + static_cast<long int>(this->_armorDamageReduction) - static_cast<long int>(amount);
 	if (life > 0 && this->_hitPoints > 0)
 	{
 		this->_hitPoints = this->_hitPoints + this->_armorDamageReduction - amount;
@@ -140,12 +141,14 @@ void	FragTrap::beRepaired(unsigned int amount)
 {
 	if (this->_hitPoints >= 0 && (this->_hitPoints + amount) <= 100)
 	{
+		// std::cout << "am = " << amount << std::endl;
 		this->_hitPoints += amount;
 		std::cout << "FR4G-TP " << this->_name << " BeRepaired with "
 		<< amount << " and his life is " << this->_hitPoints << std::endl;
 	}
 	else if ((this->_hitPoints + amount) > 100)
 	{
+		this->_hitPoints = 100;
 		std::cout << "FR4G-TP " << this->_name << " Can't have more than 100 HP LIFE is "
 		<< this->_hitPoints << std::endl;
 	}

@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 11:05:34 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/25 14:04:17 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/27 17:31:43 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,9 @@ void	ScavTrap::challengeNewcomer( void )
 	std::cout << "Challenge: " << std::endl;
 	std::cout << challenge[r] << std::endl;
 	return ;
+}
+
+std::string ScavTrap::getName(void) const
+{
+	return this->_name;
 }
