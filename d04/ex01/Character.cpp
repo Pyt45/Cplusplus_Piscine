@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 17:19:20 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/05 12:33:26 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/28 12:00:18 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,19 +86,6 @@ void	Character::equip(AWeapon *wp)
 	return ;
 }
 
-// void	Character::attack(Enemy *em)
-// {
-// 	if (_ap >= _wp->getAPCost())
-// 	{
-// 		_ap -= _wp->getAPCost();
-// 		em->takeDamage(_wp->getDamage());
-// 		std::cout << _name <<" attacks "<< em->getType() <<" with a "<< _wp->getName() << std::endl;
-// 		if (em->getHP() == 0)
-// 			delete em;
-// 	}
-// 	return ;
-// }
-
 void	Character::attack(Enemy *em)
 {
 	if (this->_ap >= _wp->getAPCost())
@@ -109,7 +96,7 @@ void	Character::attack(Enemy *em)
 		em->getType() << " with a " << _wp->getName()
 		<< std::endl;
 		_wp->attack();
-		if (em->getHP() == 0)
+		if (em->getHP() <= 0)
 			delete em;
 	}
 	return ;

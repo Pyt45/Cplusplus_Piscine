@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   SuperMutant.hpp                                    :+:      :+:    :+:   */
+/*   Peon.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/04 16:22:54 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/28 11:58:38 by aaqlzim          ###   ########.fr       */
+/*   Created: 2021/02/04 09:33:27 by aaqlzim           #+#    #+#             */
+/*   Updated: 2021/02/04 10:00:31 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SUPERMUTANT_HPP
-# define SUPERMUTANT_HPP
+#ifndef PEON_HPP
+# define PEON_HPP
 
-# include "Enemy.hpp"
+# include "Victim.hpp"
 
-class SuperMutant : public Enemy{
+class Peon : public Victim {
 	public:
-		SuperMutant( void );
-		SuperMutant( SuperMutant const & src );
-		SuperMutant & operator=( SuperMutant const & src );
-		~SuperMutant( void );
-		void			takeDamage(int);
+		Peon( void );
+		Peon( std::string const & name );
+		Peon( Peon const & src );
+		Peon & operator=( Peon const & src );
+		virtual ~Peon( void );
+
+		virtual void	getPolymorphed() const;
+	private:
+		std::string _name;
 };
 
 #endif

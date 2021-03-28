@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:53:53 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/04 16:34:00 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/28 11:25:16 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class AWeapon {
 		AWeapon( AWeapon const & src );
 		AWeapon & operator=( AWeapon const & src );
 		virtual ~AWeapon( void );
+
 		std::string const & getName() const;
 		int					getAPCost() const;
 		int					getDamage() const;

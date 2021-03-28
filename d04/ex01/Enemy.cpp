@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 16:59:59 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/04 17:14:06 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/28 11:37:37 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,6 @@ void	Enemy::takeDamage(int d)
 	if (d < 0)
 		return ;
 	this->_hp -= d;
+	if (this->_hp < 0)
+		this->_hp = 0;
 }

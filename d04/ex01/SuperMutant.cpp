@@ -6,22 +6,15 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 17:18:00 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/05 12:43:25 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/28 11:58:17 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "SuperMutant.hpp"
 
-SuperMutant::SuperMutant( void ) : Enemy(70, "Super Mutant")
+SuperMutant::SuperMutant( void ) : Enemy(170, "Super Mutant")
 {
 	std::cout << "Gaaah. Me want smash heads!" << std::endl;
-	return ;
-}
-
-SuperMutant::SuperMutant( int hp, std::string const & type ): Enemy(hp, type)
-{
-	this->_hp = hp;
-	this->_type = type;
 	return ;
 }
 
@@ -51,5 +44,7 @@ void	SuperMutant::takeDamage(int d)
 {
 	if (d < 0)
 		return ;
-	this->_hp -= (d - 3);
+	Enemy::_hp -= (d - 3);
+	if (Enemy::_hp < 0)
+		Enemy::_hp = 0;
 }
