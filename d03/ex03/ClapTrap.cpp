@@ -2,28 +2,28 @@
 
 ClapTrap::ClapTrap( void )
 {
-	_name = "Default";
-	std::cout << "ClapTrap " << "\033[1;31m" << _name << "\033[0m" <<  " Called" << std::endl;
+	this->_name = "Default";
+	std::cout << "ClapTrap " << "\033[1;31m" << this->_name << "\033[0m" <<  " Called" << std::endl;
 	return ;
 }
 
 ClapTrap::~ClapTrap( void )
 {
-	std::cout<< "ClapTrap " << "\033[1;31m" << _name << "\033[0m" << " is dead" << std::endl;
+	std::cout<< "ClapTrap " << "\033[1;31m" << this->_name << "\033[0m" << " is dead" << std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap( std::string const & name )
 {
-	_name = name;
-	std::cout << "ClapTrap " << _name <<  " Called" << std::endl;
+	this->_name = name;
+	std::cout << "ClapTrap " << this->_name <<  " Called" << std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap( ClapTrap const & src )
 {
-	std::cout << "Recompiling my combat code!" << std::endl;
 	*this = src;
+	std::cout << "Recompiling my combat code!" << std::endl;
 	return;
 }
 
@@ -46,18 +46,18 @@ ClapTrap & ClapTrap::operator=( ClapTrap const & src )
 
 void	ClapTrap::rangedAttack(std::string const & target) const
 {
-	std::cout << "\033[0;32mClapTrap <" << _name << ">"
+	std::cout << "\033[0;32mClapTrap <" << this->_name << ">"
 	<< " attacks <" << target << "> at range, causing <"
-	<< _rangedAttackDamage << "> points of damage!\033[0m"
+	<< this->_rangedAttackDamage << "> points of damage!\033[0m"
 	<< std::endl; 
 	return ;
 }
 
 void	ClapTrap::meleeAttack(std::string const & target) const
 {
-	std::cout << "\033[0;32mClapTrap Hyah! Heyyah! take That <" << _name << ">"
+	std::cout << "\033[0;32mClapTrap Hyah! Heyyah! take That <" << this->_name << ">"
 	<< " attacks <" << target << ">" << " ,causing <"
-	<< _meleeAttackDamage << "> points of damage!\033[0m"
+	<< this->_meleeAttackDamage << "> points of damage!\033[0m"
 	<< std::endl; 
 	return ;
 }
@@ -69,16 +69,16 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		life = 0;
 	else
 		life = static_cast<long int>(this->_hitPoints) + static_cast<long int>(this->_armorDamageReduction) - static_cast<long int>(amount);
-	if (life > 0 && _hitPoints > 0)
+	if (life > 0 && this->_hitPoints > 0)
 	{
-		_hitPoints = _hitPoints + _armorDamageReduction - amount;
-		std::cout << _name << " take damage of "
-		<< amount - _armorDamageReduction << " and his life is "
-		<< _hitPoints << std::endl;
+		this->_hitPoints = this->_hitPoints + this->_armorDamageReduction - amount;
+		std::cout << this->_name << " take damage of "
+		<< amount - this->_armorDamageReduction << " and his life is "
+		<< this->_hitPoints << std::endl;
 	}
 	else
 	{
-		_hitPoints = 0;
+		this->_hitPoints = this->_maxHitPoints;
 		std::cout << "Hehehehe, mwaa ha ha ha, MWAA HA HA HA! you are dead!"
 		<< " your life is 0" << std::endl;
 	}
@@ -86,17 +86,17 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (_hitPoints >= 0 && (_hitPoints + amount) <= 100)
+	if (this->_hitPoints >= 0 && (this->_hitPoints + amount) <= this->_maxHitPoints)
 	{
-		_hitPoints += amount;
-		std::cout << "FR4G-TP " << _name << " BeRepaired with "
-		<< amount << " and his life is " << _hitPoints << std::endl;
+		this->_hitPoints += amount;
+		std::cout << "FR4G-TP " << this->_name << " BeRepaired with "
+		<< amount << " and his life is " << this->_hitPoints << std::endl;
 	}
-	else if ((_hitPoints + amount) > 100)
+	else if ((this->_hitPoints + amount) > this->_maxHitPoints)
 	{
-		this->_hitPoints = 100;
-		std::cout << "FR4G-TP " << _name << " Can't have more than 100 HP LIFE is "
-		<< _hitPoints << std::endl;
+		this->_hitPoints = this->_maxHitPoints;
+		std::cout << "FR4G-TP " << this->_name << " Can't have more than " << this->_maxHitPoints << " HP LIFE is "
+		<< this->_hitPoints << std::endl;
 	}
 	else
 		std::cout << "Hehehehe, mwaa ha ha ha, MWAA HA HA HA! you are dead!"

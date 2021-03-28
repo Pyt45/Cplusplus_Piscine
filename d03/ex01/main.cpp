@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 09:52:20 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/01 10:38:06 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/28 15:23:33 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int main()
 	// Scav
 	scav.beRepaired(52);
 	scav.takeDamage(50);
+	std::cout << "Scav life is : " << scav.getPoints() << std::endl;
 	scav.challengeNewcomer();
 	std::cout << std::endl;
 	return 0;

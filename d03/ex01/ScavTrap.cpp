@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 11:05:34 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/27 17:27:21 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/28 15:12:28 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,14 +119,15 @@ void	ScavTrap::takeDamage(unsigned int amount)
 
 void	ScavTrap::beRepaired(unsigned int amount)
 {
-	if (this->_hitPoints >= 0 && (this->_hitPoints + amount) <= 100)
+	if (this->_hitPoints >= 0 && (this->_hitPoints + amount) <= this->_maxHitPoints)
 	{
 		this->_hitPoints += amount;
 		std::cout << "SC4V-TP " << this->_name << " BeRepaired with "
 		<< amount << " and the life is " << this->_hitPoints << std::endl;
 	}
-	else if ((this->_hitPoints + amount) > 100)
+	else if ((this->_hitPoints + amount) > this->_maxHitPoints)
 	{
+		this->_hitPoints = this->_maxHitPoints;
 		std::cout << "Status: SC4V-TP " << this->_name << " Can't have more than 100 HP LIFE is "
 		<< this->_hitPoints << std::endl;
 	}

@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:43:45 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/25 11:28:23 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/28 15:46:29 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ FragTrap::FragTrap( std::string const & name ) : ClapTrap(name)
 
 FragTrap::FragTrap( FragTrap const & src ) : ClapTrap(src)
 {
+	*this = src;
 	std::cout << "\033[1;32mRecompiling my combat code! This time i will be awesome, I promise\033[0m"
 	<< std::endl;
-	*this = src;
 	return ;
 }
 
@@ -66,26 +66,27 @@ FragTrap & FragTrap::operator=( FragTrap const & src ) {
 	if (this != &src)
 	{
 		this->_name = src._name;
-		this->_maxEnergyPoints = src._maxEnergyPoints;
-		this->_maxHitPoints = src._maxHitPoints;
-		this->_armorDamageReduction = src._armorDamageReduction;
-		this->_meleeAttackDamage = src._meleeAttackDamage;
-		this->_rangedAttackDamage = src._rangedAttackDamage;
-		this->_energyPoints = src._energyPoints;
-		this->_hitPoints = src._hitPoints;
-		this->_level = src._level;
+		ClapTrap::_name = src._name;
+		ClapTrap::_maxEnergyPoints = src._maxEnergyPoints;
+		ClapTrap::_maxHitPoints = src._maxHitPoints;
+		ClapTrap::_armorDamageReduction = src._armorDamageReduction;
+		ClapTrap::_meleeAttackDamage = src._meleeAttackDamage;
+		ClapTrap::_rangedAttackDamage = src._rangedAttackDamage;
+		ClapTrap::_energyPoints = src._energyPoints;
+		ClapTrap::_hitPoints = src._hitPoints;
+		ClapTrap::_level = src._level;
 	}
 	return *this;
 }
 
 void  FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
-	if (this->_energyPoints >= 25)
+	if (ClapTrap::_energyPoints >= 25)
 	{
 		int		r;
 
 		srand(clock());
-		this->_energyPoints -= 25;
+		ClapTrap::_energyPoints -= 25;
 		void	(FragTrap::*ptr[5])(std::string const &) = {
 			&FragTrap::blightBotAttack,
 			&FragTrap::gunWizardAttack,
@@ -97,7 +98,7 @@ void  FragTrap::vaulthunter_dot_exe(std::string const & target)
 		(this->*ptr[r])(target);
 	}
 	else
-		std::cout << "\033[1;32mFRAGTRAP: " << _name << " has no enaugh enery points\033[0m" << std::endl;
+		std::cout << "\033[1;32mFRAGTRAP: " << this->_name << " has no enaugh enery points\033[0m" << std::endl;
 }
 
 

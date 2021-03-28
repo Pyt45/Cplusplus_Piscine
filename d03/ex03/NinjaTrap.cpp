@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:47:52 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/25 11:46:50 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/28 15:47:42 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,15 @@ NinjaTrap & NinjaTrap::operator=( NinjaTrap const & src )
 	if (this != &src)
 	{
 		this->_name = src._name;
-		this->_maxEnergyPoints = src._maxEnergyPoints;
-		this->_maxHitPoints = src._maxHitPoints;
-		this->_armorDamageReduction = src._armorDamageReduction;
-		this->_meleeAttackDamage = src._meleeAttackDamage;
-		this->_rangedAttackDamage = src._rangedAttackDamage;
-		this->_energyPoints = src._energyPoints;
-		this->_hitPoints = src._hitPoints;
-		this->_level = src._level;
+		ClapTrap::_name = src._name;
+		ClapTrap::_maxEnergyPoints = src._maxEnergyPoints;
+		ClapTrap::_maxHitPoints = src._maxHitPoints;
+		ClapTrap::_armorDamageReduction = src._armorDamageReduction;
+		ClapTrap::_meleeAttackDamage = src._meleeAttackDamage;
+		ClapTrap::_rangedAttackDamage = src._rangedAttackDamage;
+		ClapTrap::_energyPoints = src._energyPoints;
+		ClapTrap::_hitPoints = src._hitPoints;
+		ClapTrap::_level = src._level;
 	}
 	return *this;
 }

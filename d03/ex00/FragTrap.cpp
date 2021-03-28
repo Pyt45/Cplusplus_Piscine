@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:43:45 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/27 17:15:22 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/28 15:08:07 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,10 @@ void  FragTrap::vaulthunter_dot_exe(std::string const & target)
 		(this->*ptr[r])(target);
 	}
 	else
+	{
+		// this->_energyPoints = this->_maxEnergyPoints;
 		std::cout << "\033[1;32mFRAGTRAP: " << _name << " has not enaugh enery points\033[0m" << std::endl;
+	}
 }
 
 void	FragTrap::rangedAttack(std::string const & target) const
@@ -139,16 +142,15 @@ void	FragTrap::takeDamage(unsigned int amount)
 
 void	FragTrap::beRepaired(unsigned int amount)
 {
-	if (this->_hitPoints >= 0 && (this->_hitPoints + amount) <= 100)
+	if (this->_hitPoints >= 0 && (this->_hitPoints + amount) <= this->_maxHitPoints)
 	{
-		// std::cout << "am = " << amount << std::endl;
 		this->_hitPoints += amount;
 		std::cout << "FR4G-TP " << this->_name << " BeRepaired with "
 		<< amount << " and his life is " << this->_hitPoints << std::endl;
 	}
-	else if ((this->_hitPoints + amount) > 100)
+	else if ((this->_hitPoints + amount) > this->_maxHitPoints)
 	{
-		this->_hitPoints = 100;
+		this->_hitPoints = this->_maxHitPoints;
 		std::cout << "FR4G-TP " << this->_name << " Can't have more than 100 HP LIFE is "
 		<< this->_hitPoints << std::endl;
 	}
