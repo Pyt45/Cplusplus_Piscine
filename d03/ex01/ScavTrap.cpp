@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 11:05:34 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/28 15:12:28 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/28 19:32:34 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,8 +150,14 @@ void	ScavTrap::challengeNewcomer( void )
 		"\033[1;31mFly mini-trap! Fly!\033[0m",
 		"\033[1;31mTrouncy, flouncy... founcy... those aren't words\033[0m"
 	};
-	int		r = rand() % 5;
-	std::cout << "Challenge: " << std::endl;
-	std::cout << challenge[r] << std::endl;
+	if (this->_energyPoints >= 25)
+	{
+		this->_energyPoints -= 25;
+		int		r = rand() % 5;
+		std::cout << "Challenge: " << std::endl;
+		std::cout << challenge[r] << std::endl;
+	}
+	else
+		std::cout << "Oh no I'm out of energy" << std::endl;
 	return ;
 }

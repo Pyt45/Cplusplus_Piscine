@@ -17,7 +17,34 @@ std::ostream & operator<<(std::ostream & o, Test const & src)
 	return o;
 }
 
+class Base {
+	public:
+		// int _b;
+		Base() {
+			_b = 10;
+			std::cout << "Base b = " << this->_b << std::endl;
+		}
+		Base(int b) {
+			_b = b;
+			std::cout << "Base b = " << this->_b << std::endl;
+		}
+	protected:
+		int _b;
+};
+
+class Drived : public Base {
+	public:
+		Drived(int b) : Base() {
+			// Base::_b = b;
+			std::cout << "b = " << Base::_b << std::endl;
+		}
+	private:
+		int _b;
+};
+
 int main(){
+	Base *b = new Drived(5);
+
 	std::string s = "hello";
 	Test t(5);
 	clock_t time_req = clock();
