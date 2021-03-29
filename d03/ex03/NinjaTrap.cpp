@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:47:52 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/28 15:47:42 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/29 14:09:21 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 NinjaTrap::NinjaTrap( void ) : ClapTrap()
 {
-	this->_name = ClapTrap::_name;
 	std::cout << "\033[0;32mNinjaTrap: yo yo everyBody Welcome me am i awesome\033[0m" << std::endl;
 	ClapTrap::_maxHitPoints = 60;
 	ClapTrap::_maxEnergyPoints = 120;
@@ -28,8 +27,7 @@ NinjaTrap::NinjaTrap( void ) : ClapTrap()
 
 NinjaTrap::NinjaTrap( std::string const & name ) : ClapTrap(name)
 {
-	this->_name = name;
-	std::cout << "\033[1;32mHello Moa ha ha ha !!, my name is \033[0m" << "\033[1;31m" << this->_name
+	std::cout << "\033[1;32mHello Moa ha ha ha !!, my name is \033[0m" << "\033[1;31m" << ClapTrap::_name
 	<< "\033[0m" << std::endl;
 	ClapTrap::_maxHitPoints = 60;
 	ClapTrap::_maxEnergyPoints = 120;
@@ -49,7 +47,6 @@ NinjaTrap::~NinjaTrap( void )
 
 NinjaTrap::NinjaTrap( NinjaTrap const & src ) : ClapTrap(src)
 {
-	*this = src;
 	std::cout << "\033[1;32mRecompiling my combat code! This time i will be awesome, I promise\033[0m"
 	<< std::endl;
 	return ;
@@ -59,16 +56,7 @@ NinjaTrap & NinjaTrap::operator=( NinjaTrap const & src )
 {
 	if (this != &src)
 	{
-		this->_name = src._name;
-		ClapTrap::_name = src._name;
-		ClapTrap::_maxEnergyPoints = src._maxEnergyPoints;
-		ClapTrap::_maxHitPoints = src._maxHitPoints;
-		ClapTrap::_armorDamageReduction = src._armorDamageReduction;
-		ClapTrap::_meleeAttackDamage = src._meleeAttackDamage;
-		ClapTrap::_rangedAttackDamage = src._rangedAttackDamage;
-		ClapTrap::_energyPoints = src._energyPoints;
-		ClapTrap::_hitPoints = src._hitPoints;
-		ClapTrap::_level = src._level;
+		ClapTrap::operator=(src);
 	}
 	return *this;
 }
@@ -95,9 +83,4 @@ void	NinjaTrap::ninjaShoeBox(ScavTrap const & scav)
 {
 	std::cout << "NINJA-TP: NINJA-TP attacks " << 
 	scav.getName() << " WHAT A BADASS NINJA HE IS :)" << std::endl;
-}
-
-std::string NinjaTrap::getName(void) const
-{
-	return this->_name;
 }

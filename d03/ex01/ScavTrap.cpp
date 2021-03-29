@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 11:05:34 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/28 19:32:34 by ayoub            ###   ########.fr       */
+/*   Updated: 2021/03/29 16:06:53 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,21 +77,38 @@ ScavTrap & ScavTrap::operator=( ScavTrap const & src )
 	return *this;
 }
 
-void	ScavTrap::rangedAttack(std::string const & target) const
+void	ScavTrap::rangedAttack(std::string const & target)
 {
 	std::cout << "\033[0;32mSC4V-TP <" << this->_name << ">"
 	<< " is attacking the <" << target << "> with a big gun at range, causing <"
 	<< _rangedAttackDamage << "> points of damage!\033[0m"
 	<< std::endl; 
+	if (this->_energyPoints + this->_rangedAttackDamage < this->_maxEnergyPoints)
+	{
+		this->_energyPoints += this->_rangedAttackDamage;
+	}
+	else {
+		// Reset energyPonint ot maxEnergy
+		this->_energyPoints = this->_maxEnergyPoints;
+	}
 	return ;
 }
 
-void	ScavTrap::meleeAttack(std::string const & target) const
+void	ScavTrap::meleeAttack(std::string const & target)
 {
 	std::cout << "\033[0;32mSC4V-TP I will kill you take That you bloody elf <" << this->_name << ">"
 	<< " is attacking <" << target << ">" << " ,causing <"
 	<< _meleeAttackDamage << "> points of damage!\033[0m"
 	<< std::endl; 
+	if (this->_energyPoints + this->_meleeAttackDamage < this->_maxEnergyPoints)
+	{
+		this->_energyPoints += this->_meleeAttackDamage;
+		
+	}
+	else {
+		// Reset energyPonint ot maxEnergy
+		this->_energyPoints = this->_maxEnergyPoints;
+	}
 	return ;
 }
 
@@ -119,26 +136,35 @@ void	ScavTrap::takeDamage(unsigned int amount)
 
 void	ScavTrap::beRepaired(unsigned int amount)
 {
-	if (this->_hitPoints >= 0 && (this->_hitPoints + amount) <= this->_maxHitPoints)
+	if (this->_hitPoints == 0)
+	{
+		std::cout << "SC4V-TP Hehehehe, MWAA HA HA HA! you are dead!"
+		<< " the life is 0" << std::endl;
+		return ;
+	}
+	if (this->_energyPoints < amount)
+	{
+		std::cout << "You have not enough energy to be repaired!" << std::endl;
+		return ;
+	}
+	if ((this->_hitPoints + amount) < this->_maxHitPoints)
 	{
 		this->_hitPoints += amount;
+		this->_energyPoints -= amount;
 		std::cout << "SC4V-TP " << this->_name << " BeRepaired with "
-		<< amount << " and the life is " << this->_hitPoints << std::endl;
+		<< amount << " and the life is " << this->_hitPoints << " | EP " << this->_energyPoints << std::endl;
 	}
-	else if ((this->_hitPoints + amount) > this->_maxHitPoints)
+	else
 	{
 		this->_hitPoints = this->_maxHitPoints;
 		std::cout << "Status: SC4V-TP " << this->_name << " Can't have more than 100 HP LIFE is "
 		<< this->_hitPoints << std::endl;
 	}
-	else
-		std::cout << "SC4V-TP Hehehehe, MWAA HA HA HA! you are dead!"
-		<< " the life is 0" << std::endl;
 }
 
-unsigned int		ScavTrap::getPoints( void ) const
+unsigned int		ScavTrap::getEnergy( void ) const
 {
-	return this->_hitPoints;	
+	return this->_energyPoints;	
 }
 
 void	ScavTrap::challengeNewcomer( void )
@@ -158,6 +184,6 @@ void	ScavTrap::challengeNewcomer( void )
 		std::cout << challenge[r] << std::endl;
 	}
 	else
-		std::cout << "Oh no I'm out of energy" << std::endl;
+		std::cout << "Oh no I'm out of energy :(" << std::endl;
 	return ;
 }

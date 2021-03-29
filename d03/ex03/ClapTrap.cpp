@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/29 14:30:24 by aaqlzim           #+#    #+#             */
+/*   Updated: 2021/03/29 14:30:33 by aaqlzim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap( void )
@@ -44,21 +56,38 @@ ClapTrap & ClapTrap::operator=( ClapTrap const & src )
 	return *this;
 }
 
-void	ClapTrap::rangedAttack(std::string const & target) const
+void	ClapTrap::rangedAttack(std::string const & target)
 {
 	std::cout << "\033[0;32mClapTrap <" << this->_name << ">"
 	<< " attacks <" << target << "> at range, causing <"
 	<< this->_rangedAttackDamage << "> points of damage!\033[0m"
 	<< std::endl; 
+	if (this->_energyPoints + this->_rangedAttackDamage < this->_maxEnergyPoints)
+	{
+		this->_energyPoints += this->_rangedAttackDamage;
+	}
+	else {
+		// Reset energyPonint ot maxEnergy
+		this->_energyPoints = this->_maxEnergyPoints;
+	}
 	return ;
 }
 
-void	ClapTrap::meleeAttack(std::string const & target) const
+void	ClapTrap::meleeAttack(std::string const & target)
 {
 	std::cout << "\033[0;32mClapTrap Hyah! Heyyah! take That <" << this->_name << ">"
 	<< " attacks <" << target << ">" << " ,causing <"
 	<< this->_meleeAttackDamage << "> points of damage!\033[0m"
 	<< std::endl; 
+	if (this->_energyPoints + this->_meleeAttackDamage < this->_maxEnergyPoints)
+	{
+		this->_energyPoints += this->_meleeAttackDamage;
+		
+	}
+	else {
+		// Reset energyPonint ot maxEnergy
+		this->_energyPoints = this->_maxEnergyPoints;
+	}
 	return ;
 }
 
@@ -86,24 +115,41 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->_hitPoints >= 0 && (this->_hitPoints + amount) <= this->_maxHitPoints)
+	if (this->_hitPoints == 0)
 	{
-		this->_hitPoints += amount;
-		std::cout << "FR4G-TP " << this->_name << " BeRepaired with "
-		<< amount << " and his life is " << this->_hitPoints << std::endl;
-	}
-	else if ((this->_hitPoints + amount) > this->_maxHitPoints)
-	{
-		this->_hitPoints = this->_maxHitPoints;
-		std::cout << "FR4G-TP " << this->_name << " Can't have more than " << this->_maxHitPoints << " HP LIFE is "
-		<< this->_hitPoints << std::endl;
-	}
-	else
 		std::cout << "Hehehehe, mwaa ha ha ha, MWAA HA HA HA! you are dead!"
 		<< " your life is 0" << std::endl;
+		return ;
+	}
+	if (this->_energyPoints < amount)
+	{
+		std::cout << "You have not enough energy to be repaired!" << std::endl;
+		return ;
+	}
+	if ((this->_hitPoints + amount) < this->_maxHitPoints)
+	{
+		this->_hitPoints += amount;
+		this->_energyPoints -= amount;
+		std::cout << "CP4G-TP " << this->_name << " BeRepaired with "
+		<< amount << " and his life is " << this->_hitPoints << std::endl;
+	}
+	else
+	{
+		this->_hitPoints = this->_maxHitPoints;
+		std::cout << "CP4G-TP " << this->_name << " Can't have more than " << this->_maxHitPoints << " HP LIFE is "
+		<< this->_hitPoints << std::endl;
+	}
 }
 
 std::string ClapTrap::getName(void) const
 {
 	return this->_name;
+}
+
+unsigned int ClapTrap::getEnergy( void ) const {
+	return this->_energyPoints;
+}
+
+unsigned int ClapTrap::getPoints( void ) const {
+	return this->_hitPoints;
 }

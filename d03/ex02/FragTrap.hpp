@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:41:57 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/25 11:05:52 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/29 12:57:23 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class FragTrap: public ClapTrap {
 
 		void		vaulthunter_dot_exe(std::string const & target);
 	private:
-		std::string	_name;
 		void		blightBotAttack(std::string const & target);
 		void		gunWizardAttack(std::string const & target);
 		void		lazerAttack(std::string const & target);

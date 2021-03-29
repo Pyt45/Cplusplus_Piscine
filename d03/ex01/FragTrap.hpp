@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:41:57 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/25 10:40:26 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/29 12:37:54 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ class FragTrap {
 		FragTrap & operator=( FragTrap const & src );
 		~FragTrap( void );
 
-		void		rangedAttack(std::string const & target) const;
-		void		meleeAttack(std::string const & target) const;
+		void		rangedAttack(std::string const & target);
+		void		meleeAttack(std::string const & target);
 		void		takeDamage(unsigned int amount);
 		void		vaulthunter_dot_exe(std::string const & target);
 		void		beRepaired(unsigned int amount);
-		unsigned int	getPoints( void ) const;
+		unsigned int	getEnergy( void ) const;
 	private:
 		std::string	_name;
 		unsigned int _hitPoints;

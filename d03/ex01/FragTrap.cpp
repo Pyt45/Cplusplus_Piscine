@@ -6,14 +6,11 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:43:45 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/28 15:11:24 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/29 16:06:47 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
-
-
-
 
 FragTrap::FragTrap( void )
 {
@@ -61,7 +58,6 @@ FragTrap::FragTrap( FragTrap const & src )
 	<< "\033[0;32m" << this->_name << "\033[0m" << std::endl;
 	return ;
 }
-
 FragTrap & FragTrap::operator=( FragTrap const & src )
 {
 	if (this != &src)
@@ -81,7 +77,7 @@ FragTrap & FragTrap::operator=( FragTrap const & src )
 
 void  FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
-	if (this->_energyPoints >= 25)
+	if (this->_energyPoints >= 25 && this->_energyPoints <= this->_maxEnergyPoints)
 	{
 		int		r;
 
@@ -98,24 +94,42 @@ void  FragTrap::vaulthunter_dot_exe(std::string const & target)
 		(this->*ptr[r])(target);
 	}
 	else
-		std::cout << "\033[1;32mFRAGTRAP: " << _name << " has not enaugh enery points\033[0m" << std::endl;
+		std::cout << "\033[1;32mFRAGTRAP: " << this->_name << " has not enough Energy points\033[0m" << std::endl;
 }
 
-void	FragTrap::rangedAttack(std::string const & target) const
+void	FragTrap::rangedAttack(std::string const & target)
 {
 	std::cout << "\033[0;32mFR4G-TP <" << this->_name << ">"
 	<< " attacks <" << target << "> at range, causing <"
 	<< _rangedAttackDamage << "> points of damage!\033[0m"
-	<< std::endl; 
+	<< std::endl;
+	
+	if (this->_energyPoints + this->_rangedAttackDamage < this->_maxEnergyPoints)
+	{
+		this->_energyPoints += this->_rangedAttackDamage;
+	}
+	else {
+		// Reset energyPonint ot maxEnergy
+		this->_energyPoints = this->_maxEnergyPoints;
+	}
 	return ;
 }
 
-void	FragTrap::meleeAttack(std::string const & target) const
+void	FragTrap::meleeAttack(std::string const & target)
 {
 	std::cout << "\033[0;32mFR4G-TP Hyah! Heyyah! take That <" << this->_name << ">"
 	<< " attacks <" << target << ">" << " ,causing <"
 	<< _meleeAttackDamage << "> points of damage!\033[0m"
-	<< std::endl; 
+	<< std::endl;
+	if (this->_energyPoints + this->_meleeAttackDamage < this->_maxEnergyPoints)
+	{
+		this->_energyPoints += this->_meleeAttackDamage;
+		
+	}
+	else {
+		// Reset energyPonint ot maxEnergy
+		this->_energyPoints = this->_maxEnergyPoints;
+	}
 	return ;
 }
 
@@ -138,26 +152,36 @@ void	FragTrap::takeDamage(unsigned int amount)
 		this->_hitPoints = 0;
 		std::cout << "Hehehehe, mwaa ha ha ha, MWAA HA HA HA! you are dead!"
 		<< " your life is 0" << std::endl;
+		return ;
 	}
 }
 
 void	FragTrap::beRepaired(unsigned int amount)
 {
-	if (this->_hitPoints >= 0 && (this->_hitPoints + amount) <= this->_maxHitPoints)
+	if (this->_hitPoints == 0)
+	{
+		std::cout << "Hehehehe, mwaa ha ha ha, MWAA HA HA HA! you are dead!"
+		<< " your life is 0" << std::endl;
+		return ;
+	}
+	if (this->_energyPoints < amount)
+	{
+		std::cout << "You have not enough energy to be repaired!" << std::endl;
+		return ;
+	}
+	if ((this->_hitPoints + amount) < this->_maxHitPoints)
 	{
 		this->_hitPoints += amount;
+		this->_energyPoints -= amount;
 		std::cout << "FR4G-TP " << this->_name << " BeRepaired with "
-		<< amount << " and his life is " << this->_hitPoints << std::endl;
+		<< amount << " and his HP is " << this->_hitPoints << " | EP " << this->_energyPoints << std::endl;
 	}
-	else if ((this->_hitPoints + amount) > this->_maxHitPoints)
+	else
 	{
 		this->_hitPoints = this->_maxHitPoints;
 		std::cout << "FR4G-TP " << this->_name << " Can't have more than 100 HP LIFE is "
 		<< this->_hitPoints << std::endl;
 	}
-	else
-		std::cout << "Hehehehe, mwaa ha ha ha, MWAA HA HA HA! you are dead!"
-		<< " your life is 0" << std::endl;
 }
 
 void	FragTrap::gunWizardAttack(std::string const & target)
@@ -166,9 +190,9 @@ void	FragTrap::gunWizardAttack(std::string const & target)
 	target << " causing 5 points of damage" << std::endl;
 }
 
-unsigned int		FragTrap::getPoints( void ) const
+unsigned int		FragTrap::getEnergy( void ) const
 {
-	return this->_hitPoints;	
+	return this->_energyPoints;	
 }
 
 void	FragTrap::lazerAttack(std::string const & target)

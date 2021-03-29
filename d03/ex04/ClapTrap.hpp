@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 10:49:36 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/27 17:30:20 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/29 14:27:23 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,13 @@ class ClapTrap {
 		ClapTrap & operator=( ClapTrap const & src );
 		~ClapTrap( void );
 		
-		virtual void	rangedAttack(std::string const & target) const;
-		virtual void	meleeAttack(std::string const & target) const;
+		virtual void	rangedAttack(std::string const & target);
+		virtual void	meleeAttack(std::string const & target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
 		std::string getName(void) const;
+		unsigned int getEnergy( void ) const;
+		unsigned int getPoints( void ) const;
 	protected:
 		std::string		_name;
 		unsigned int _hitPoints;
