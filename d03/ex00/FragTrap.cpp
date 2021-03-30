@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:43:45 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/29 16:07:05 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/30 10:26:14 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ FragTrap::~FragTrap( void )
 	std::cout << "\033[1;32mIs it dead? Can, can I open my eyes now?\033[0m" << std::endl;
 	return ;
 }
+// std::string | std::string* | std::string & 
 
 FragTrap::FragTrap( std::string const & name )
 {

@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 16:48:58 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/24 11:16:34 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/30 14:00:53 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ PowerFist::PowerFist( PowerFist const & src ): AWeapon(src)
 
 PowerFist & PowerFist::operator=( PowerFist const & src )
 {
-	static_cast<void>(src);
+	if (this != &src)
+		AWeapon::operator=(src);
 	return *this;
 }
 

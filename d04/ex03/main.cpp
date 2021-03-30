@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 11:48:11 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/12 11:43:37 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/30 14:04:43 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main()
 
 
 	std::cout << std::endl;
-	std::cout << "==========================" << std::endl;
+	std::cout << "=============================\n" << std::endl;
 	ICharacter *jimmy = bob;
 	me->use(0, *jimmy);
 	me->use(1, *jimmy);

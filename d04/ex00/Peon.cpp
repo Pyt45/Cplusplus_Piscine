@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 09:36:25 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/28 10:44:45 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/30 13:16:00 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Peon::Peon( std::string const & name ) : Victim(name)
 {
-	this->_name = name;
+	// this->_name = name;
 	std::cout << "Zog zog." << std::endl;
 	return ;
 }
@@ -26,14 +26,15 @@ Peon::~Peon( void )
 
 Peon::Peon( Peon const & src ) : Victim(src)
 {
-	*this = src;
+	// *this = src;
 	return ;
 }
 
 Peon & Peon::operator=( Peon const & src )
 {
 	if (this != &src)
-		this->_name = src._name;
+		Victim::operator=(src);
+		// this->_name = src._name;
 	return *this;
 }
 

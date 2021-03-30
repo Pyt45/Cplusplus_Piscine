@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 09:33:27 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/28 10:44:06 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/30 13:45:55 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ class Peon : public Victim {
 		~Peon( void );
 
 		void	getPolymorphed() const;
-	private:
-		std::string _name;
 };
 
 #endif

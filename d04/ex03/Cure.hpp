@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 12:01:51 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/10 15:01:53 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/30 13:58:05 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ class Cure : public AMateria {
 
 		AMateria* clone() const;
 		void		use(ICharacter& target);
-	private:
-		std::string 	_type;
 };
 
 #endif

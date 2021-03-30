@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 17:58:05 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/04 14:44:55 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/30 13:16:31 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@ Victim::Victim( Victim const & src )
 Victim & Victim::operator=( Victim const & src )
 {
 	if (this != &src)
-	{
 		this->_name = src._name;
-	}
 	return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 15:02:43 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/18 17:12:04 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/30 13:56:06 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 Cure::Cure( void ) : AMateria("cure")
 {
-	// this->_type = "cure";
 	return ;
 }
 
-Cure::Cure( Cure const & src )
+Cure::Cure( Cure const & src ) : AMateria(src)
 {
 	*this = src;
 	return ;

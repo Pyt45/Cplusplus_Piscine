@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 15:44:02 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/12 11:36:31 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/30 14:04:05 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ unsigned int AMateria::getXP() const
 
 void	AMateria::use(ICharacter & target)
 {
+	static_cast<void>(target);
 	this->_xp += 10;
 }

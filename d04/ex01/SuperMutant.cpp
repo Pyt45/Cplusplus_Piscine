@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 17:18:00 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/28 11:58:17 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/30 14:00:33 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,15 @@ SuperMutant::~SuperMutant( void )
 	return ;
 }
 
-SuperMutant::SuperMutant( SuperMutant const & src )
+SuperMutant::SuperMutant( SuperMutant const & src ) : Enemy(src)
 {
-	*this = src;
 	return ;
 }
 
 SuperMutant & SuperMutant::operator=( SuperMutant const & src )
 {
 	if (this != &src)
-	{
-		this->_hp = src._hp;
-		this->_type = src._type;
-	}
+		Enemy::operator=(src);
 	return *this;
 }
 
