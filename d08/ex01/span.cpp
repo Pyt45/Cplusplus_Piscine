@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 11:44:39 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/24 11:47:15 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/30 21:39:32 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,13 @@ int     Span::shortestSpan(void) const {
         throw std::out_of_range("need more than one value");
     std::vector<int> cpy = _v;
     std::sort(cpy.begin(), cpy.end());
-    return cpy.at(1) - cpy.at(0);
+    long int shortSpan = static_cast<long int>(cpy.at(1)) - static_cast<long int>(cpy.at(0));
+    for (int i = 1; i < static_cast<int>(cpy.size()) - 1; i++)
+    {
+        if (static_cast<long int>(cpy.at(i + 1)) - static_cast<long int>(cpy.at(i)))
+            shortSpan = static_cast<long int>(cpy.at(i + 1)) - static_cast<long int>(cpy.at(i));
+    }
+    return shortSpan;
 }
 
 int     Span::longestSpan(void) const {

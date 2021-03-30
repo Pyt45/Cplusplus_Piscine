@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 11:44:32 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/24 11:47:20 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/30 21:30:26 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,22 @@
 int     main(void)
 {
     Span sp = Span(10000);
-    for (int i = 0; i < 10000; i++)
+    /*for (int i = 0; i < 10000; i++)
     {
         srand(clock());
         sp.addNumber(rand() % 100);
     }
     std::cout << sp.shortestSpan() << std::endl;
     std::cout << sp.longestSpan() << std::endl;
-    std::cout << "============================" << std::endl;
-    Span sp1 = Span(5);
+    std::cout << "============================" << std::endl;*/
+    Span sp1 = Span(6);
     try {
         sp1.addNumber(5);
         sp1.addNumber(3);
         sp1.addNumber(17);
         sp1.addNumber(9);
         sp1.addNumber(11);
+        sp1.addNumber(-2345);
         std::cout << sp1.shortestSpan() << std::endl;
         std::cout << sp1.longestSpan() << std::endl;
         sp1.addNumber(4);
