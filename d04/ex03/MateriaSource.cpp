@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 17:15:31 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/12 11:32:27 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/30 21:13:18 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ AMateria* MateriaSource::createMateria( std::string const & type )
 {
 	AMateria *tmp;
 
-	if (this->_idx >=4 || this->_idx < 0)
+	if (this->_idx >= 4 || this->_idx < 0)
 		return NULL;
 	for (int i = 0; i < this->_idx; i++)
 	{

@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 11:48:11 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/30 14:04:43 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/30 21:17:01 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 #include "Ice.hpp"
 #include "Cure.hpp"
@@ -47,3 +49,52 @@ int main()
 	delete src;
 	return 0;
 }
+/*
+void	sleep_time()
+{
+	std::cout << std::endl;
+	usleep(500000);
+}
+
+int main()
+{
+	 IMateriaSource* src = new MateriaSource();
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
+    
+    ICharacter* nkki = new Character("nkki");
+    
+    AMateria* tmp;
+    AMateria* tmp2;
+    tmp = src->createMateria("ice");
+    nkki->equip(tmp);
+    std::cout << "[+] ICE = " << tmp->getType() << std::endl;
+    sleep_time();
+	
+    tmp2 = src->createMateria("cure");
+    nkki->equip(tmp2);
+    std::cout << "[+] CURE = " << tmp2->getType() << std::endl;
+    sleep_time();
+    
+    ICharacter* bob = new Character("bob");
+    
+    nkki->use(0, *bob);
+    sleep_time();
+    nkki->use(1, *bob);
+    std::cout << "[+] " << tmp->getType() << " xp = " << tmp->getXP() << std::endl;
+    sleep_time();
+    std::cout << "[+] " << tmp2->getType() << " xp = " << tmp2->getXP() << std::endl;
+    sleep_time();
+
+    
+    nkki->use(0, *bob);
+    sleep_time();
+    std::cout << "[+] " << tmp->getType() << " xp = " << tmp->getXP() << std::endl;
+    std::cout << "[+] " << tmp2->getType() << " xp = " << tmp2->getXP() << std::endl;
+    sleep_time();
+
+    delete bob;
+    delete nkki;
+    delete src;
+}
+*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   SuperMutant.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 17:18:00 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/30 14:00:33 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/30 21:10:26 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,6 @@ SuperMutant & SuperMutant::operator=( SuperMutant const & src )
 
 void	SuperMutant::takeDamage(int d)
 {
-	if (d < 0)
-		return ;
-	Enemy::_hp -= (d - 3);
-	if (Enemy::_hp < 0)
-		Enemy::_hp = 0;
+	d -= 3;
+	Enemy::takeDamage(d);
 }
