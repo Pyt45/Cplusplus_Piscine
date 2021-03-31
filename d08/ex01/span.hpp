@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 11:44:44 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/31 14:12:22 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/31 15:19:48 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,14 @@ class Span {
         ~Span( void );
 
         void    addNumber(int num);
-        int     shortestSpan( void ) const;
-        int     longestSpan( void ) const;
+        long int     shortestSpan( void ) const;
+        long int     longestSpan( void ) const;
         template<template<typename> class T>
         void addNumber(T<int *> begin, T<int *> end) {
+            std::cout << "size = " << end - begin << std::endl;
             if (_v.size() < _n)
             {
+                int j = 0;
                 for (T<int *> i = begin; i != end; i++)
                     _v.push_back(*i);
             }
