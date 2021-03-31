@@ -3,53 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 11:48:11 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/30 21:17:01 by ayoub            ###   ########.fr       */
+/*   Updated: 2021/03/31 10:10:34 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 
 #include "Ice.hpp"
 #include "Cure.hpp"
 #include "MateriaSource.hpp"
 #include "Character.hpp"
 #include "AMateria.hpp"
+#include <unistd.h>
 
-int main()
-{
-	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
-
-	ICharacter* me = new Character("me");
-
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-
-	ICharacter* bob = new Character("bob");
-
-	me->use(0, *bob);
-	me->use(1, *bob);
-
-
-	std::cout << std::endl;
-	std::cout << "=============================\n" << std::endl;
-	ICharacter *jimmy = bob;
-	me->use(0, *jimmy);
-	me->use(1, *jimmy);
-	
-	delete bob;
-	delete me;
-	delete src;
-	return 0;
-}
-/*
 void	sleep_time()
 {
 	std::cout << std::endl;
@@ -58,43 +26,42 @@ void	sleep_time()
 
 int main()
 {
-	 IMateriaSource* src = new MateriaSource();
+	IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
     
-    ICharacter* nkki = new Character("nkki");
+    ICharacter* me = new Character("me");
     
     AMateria* tmp;
-    AMateria* tmp2;
+    AMateria* tmp1;
     tmp = src->createMateria("ice");
-    nkki->equip(tmp);
-    std::cout << "[+] ICE = " << tmp->getType() << std::endl;
+    me->equip(tmp);
+    std::cout << "[+] ICE  = " << tmp->getType() << std::endl;
     sleep_time();
 	
-    tmp2 = src->createMateria("cure");
-    nkki->equip(tmp2);
-    std::cout << "[+] CURE = " << tmp2->getType() << std::endl;
+    tmp1 = src->createMateria("cure");
+	me->equip(tmp1);
+    std::cout << "[+] CURE = " << tmp1->getType() << std::endl;
     sleep_time();
     
     ICharacter* bob = new Character("bob");
     
-    nkki->use(0, *bob);
+    me->use(0, *bob);
     sleep_time();
-    nkki->use(1, *bob);
-    std::cout << "[+] " << tmp->getType() << " xp = " << tmp->getXP() << std::endl;
+    me->use(1, *bob);
+    std::cout << "[+] " << tmp->getType() << "  xp = " << tmp->getXP() << std::endl;
     sleep_time();
-    std::cout << "[+] " << tmp2->getType() << " xp = " << tmp2->getXP() << std::endl;
+    std::cout << "[+] " << tmp1->getType() << " xp = " << tmp1->getXP() << std::endl;
     sleep_time();
 
     
-    nkki->use(0, *bob);
+    me->use(0, *bob);
     sleep_time();
-    std::cout << "[+] " << tmp->getType() << " xp = " << tmp->getXP() << std::endl;
-    std::cout << "[+] " << tmp2->getType() << " xp = " << tmp2->getXP() << std::endl;
+    std::cout << "[+] " << tmp->getType() << "  xp = " << tmp->getXP() << std::endl;
+    std::cout << "[+] " << tmp1->getType() << " xp = " << tmp1->getXP() << std::endl;
     sleep_time();
 
     delete bob;
-    delete nkki;
+    delete me;
     delete src;
 }
-*/

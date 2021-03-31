@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 12:48:10 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/30 14:02:18 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/31 10:17:24 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ int main()
 {
 	ISpaceMarine* bob = new TacticalMarine;
 	ISpaceMarine* jim = new AssaultTerminator;
-	// ISpaceMarine* jim1 = jim->clone();
+	ISpaceMarine* jimmy = jim->clone();
 
 	ISquad* vlc = new Squad;
 	vlc->push(bob);
 	vlc->push(jim);
-	// vlc->push(jim1);
+	vlc->push(jimmy);
 	for (int i = 0; i < vlc->getCount(); ++i)
 	{
 		ISpaceMarine* cur = vlc->getUnit(i);
@@ -44,5 +44,7 @@ int main()
 
 	ISpaceMarine *cur = v->getUnit(0);
 	cur->battleCry();
+
+	delete vp;
 	return 0;
 }
