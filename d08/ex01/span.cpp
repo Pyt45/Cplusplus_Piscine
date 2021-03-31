@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 11:44:39 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/31 13:10:33 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/31 14:09:55 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,11 @@ Span::~Span( void ) {
 }
 
 void    Span::addNumber(int num) {
+    std::cout << "_v = " << _v.size() << " _n : " << _n << std::endl;
     if (_v.size() < _n)
         _v.push_back(num);
     else
-        throw std::out_of_range("out of range");
+        throw FullSpanException();
 }
 
 int     Span::shortestSpan(void) const {
