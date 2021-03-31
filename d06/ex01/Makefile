@@ -6,7 +6,7 @@
 #    By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/23 11:06:02 by aaqlzim           #+#    #+#              #
-#    Updated: 2021/02/23 11:09:21 by aaqlzim          ###   ########.fr        #
+#    Updated: 2021/03/31 12:04:55 by aaqlzim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME :=  serialization
 SRCS := main.cpp
 OBJS := $(SRCS:.cpp=.o)
 
-CXX := g++
+CXX := clang++
 CXXFLAGS := -std=c++98 -Wall -Wextra -Werror
 
 all: $(NAME)

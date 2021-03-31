@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 11:46:07 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/24 11:46:42 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/31 12:39:54 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,22 @@ class Array {
 		unsigned int _size;
 		T			*_arr;
 	public:
+		class OutOfRange : public std::exception {
+			public:
+				virtual const char * what() const throw() {
+					return "out of range";
+				}
+		};
 		Array( void ) {
 			_arr = new T[0];
+			_arr[0] = 0;
 			_size = 0;
 		}
 		Array(unsigned int n) {
 			_arr = new T[n];
+			_arr[0] = n;
+			for (unsigned int i = 1; i < n; i++)
+				_arr[i] = 0;
 			_size = n;
 		}
 		Array( Array const & src ) {
@@ -46,7 +56,7 @@ class Array {
 		}
 		T & operator[]( unsigned int index ) {
 			if (index >= _size)
-				throw std::exception();
+				throw OutOfRange();
 			return _arr[index];
 		}
 		unsigned int size() const {

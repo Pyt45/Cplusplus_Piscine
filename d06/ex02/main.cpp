@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 16:04:27 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/23 17:46:56 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/31 11:54:39 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	identify_from_reference(Base & p)
 	{
 		std::cout << "Failed to A: " << e.what() << std::endl;
 	}
-	
 	try {
 		B & cl_b = dynamic_cast<B&>(p);
 		std::cout << output[1] << std::endl;

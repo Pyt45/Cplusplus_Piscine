@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 11:45:56 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/24 11:46:37 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/31 12:15:39 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ double     mul(int a)
 
 int     mul(double i)
 {
-    i *= 2;
-    std::cout << "i * 2 = " << static_cast<int>(i) << std::endl;
+    i *= 3;
+    std::cout << "i * 3 = " << static_cast<int>(i) << std::endl;
     return static_cast<int>(i);
 }
 

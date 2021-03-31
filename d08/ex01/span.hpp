@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 11:44:44 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/24 11:47:24 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/31 13:20:56 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ class Span {
         void    addNumber(int num);
         int     shortestSpan( void ) const;
         int     longestSpan( void ) const;
+        // template<typename T>
+        // void addNumber(T begin, T end);
     private:
         std::vector<int> _v;
         unsigned int _n;

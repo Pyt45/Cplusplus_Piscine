@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 16:37:57 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/23 10:36:58 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/31 12:20:36 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <iostream>
 # include <sstream>
-# include <typeinfo>
 # include <limits>
 # include <stdexcept>
 # include <cstring>

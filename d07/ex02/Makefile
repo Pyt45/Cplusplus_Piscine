@@ -6,16 +6,16 @@
 #    By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 11:46:13 by aaqlzim           #+#    #+#              #
-#    Updated: 2021/02/24 11:46:47 by aaqlzim          ###   ########.fr        #
+#    Updated: 2021/03/31 12:42:56 by aaqlzim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := iter
+NAME := Array
 
 SRCS := main.cpp
 OBJS := $(SRCS:.cpp=.o)
 
-CXX := g++
+CXX := clang++
 CXXFLAGS := -std=c++98 -Wall -Wextra -Werror
 
 all: $(NAME)

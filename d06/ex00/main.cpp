@@ -6,37 +6,11 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 16:40:40 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/26 15:50:41 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/31 11:59:12 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Scalar.Conversion.hpp"
-
-/*class Base {
-	public:
-		virtual void print() const {
-			std::cout << "hello from Base class" << std::endl;
-		}	
-};
-class Drived : public Base {
-	public:
-		virtual void print() const {
-			std::cout << "hello from Drived class" << std::endl;
-		}	
-};
-int		toInt(char *argv, int argc)
-{
-	int		num = 0;
-	int		i = 0;
-	while (i < argc)
-	{
-		if (argv[i] >= '0' && argv[i] <= '9')
-			num += argv[i] - 32;
-		i++;
-	}
-	return num;
-}
-*/
 
 void	printChar(ScalarConversion & Scalar, double value)
 {
@@ -98,69 +72,54 @@ int		getPrecision(std::string str)
 	return ((str.length() == static_cast<size_t>(beforeDot) || afterDot == 1) ? 1 : afterDot - 1);
 }
 
+int 	check_arg(std::string const &str)
+{
+	if (str.length() == 1 && std::isprint(str[0])
+	&& (str[0] > '9' || str[0] < '0'))
+		return (1);
+	else if (str.length() > 1 && !atof(str.c_str()))
+		return (1);
+	return (0);
+}
+
 int		main(int argc, char **argv)
 {
+	double value = 0.0;
+	ScalarConversion Scalar;
+
 	if (argc == 2)
 	{
-		double value = atof(argv[1]);
-		int precision = getPrecision(argv[1]);
-		ScalarConversion Scalar;
-		printChar(Scalar, value);
-		printInt(Scalar, value);
-		printFloat(precision, Scalar, value);
-		printDouble(precision, Scalar, value);
+		std::string arg = argv[1];
+		if (arg.empty())
+			std::cout << "argument must not be empty" << std::endl;
+		else if (check_arg(argv[1]))
+		{
+			try {
+				if (arg.length() > 1)
+					throw ScalarConversion::Impossible();
+				else
+				{
+					double val = static_cast<double>(int(argv[1][0]));
+					printChar(Scalar, val);
+					printInt(Scalar, val);
+					printFloat(1, Scalar, val);
+					printDouble(1, Scalar, val);
+				}
+			} catch(std::exception & e) {
+				std::cout << e.what() << std::endl;
+			}
+		}
+		else
+		{
+			value = atof(argv[1]);
+			int precision = getPrecision(argv[1]);
+			printChar(Scalar, value);
+			printInt(Scalar, value);
+			printFloat(precision, Scalar, value);
+			printDouble(precision, Scalar, value);
+		}
 	}
-	/*double n = atof(argv[1]);
-	std::cout << n << std::endl;
-	std::cout << static_cast<char>(n) << std::endl;
-	std::cout << static_cast<int>(n) << std::endl;
-	std::cout << static_cast<double>(n) << std::endl;*/
-	/*Base *b = new Base();
-	Drived *d = new Drived();
-	b->print();
-	b = dynamic_cast<Drived*>(d);
-	b->print();
-	std::cout << b << std::endl;
-	std::cout << d << std::endl;
-	std::cout << std::boolalpha;
-	std::cout << "int min = " << std::numeric_limits<int>::min() << std::endl;
-	std::cout << "int max = " << std::numeric_limits<int>::max() << std::endl;
-	std::cout << "int has infinity : " << std::numeric_limits<int>::has_infinity << std::endl;
-	std::cout << "double has infinity : " << std::numeric_limits<double>::has_infinity << std::endl;
-	std::cout << "float has infinity : " << std::numeric_limits<float>::has_infinity << std::endl;*/
-	// Drived d;
-	// Base *b = &d;
-	// Drived *d1 = dynamic_cast<Drived*>(b);
-	
-	// b->print();
-	// d1->print();
-	// auto i = 0;
-	// int a = 42;
-	// int const *c = &a;
-	// int *b = &a;
-	// int *e = const_cast<int*>(c);
-	// int *f = static_cast<int*>(b);
-	// std::cout << c << std::endl;
-	// std::cout << e << std::endl;
-	// std::cout << b << std::endl;
-	// std::cout << f << std::endl;
-	// std::string s = argv[1];
-	// std::stringstream ss(s);
-	// float f = 0.0f;
-	// int	num = 0;
-	// double d = 0;
-	// char c;
-	// ss >> f;
-	// std::cout << "f has a type : " << typeid(f).name() << std::endl;	
-	// int n;
-	// float f = 5.2;
-	// memcpy(&n, &f, 4);
-	// std::cout << n << std::endl;
-	// double b = a;
-	// double c = (double)a;
-
-	// std::cout << a << std::endl;
-	// std::cout << b << std::endl;
-	// std::cout << c << std::endl;
+	else
+		std::cout << "add another argument to run this program 😜" << std::endl;
 	return 0;
 }

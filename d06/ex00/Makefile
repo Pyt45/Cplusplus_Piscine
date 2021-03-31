@@ -6,7 +6,7 @@
 #    By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/19 16:37:46 by aaqlzim           #+#    #+#              #
-#    Updated: 2021/03/28 17:42:01 by aaqlzim          ###   ########.fr        #
+#    Updated: 2021/03/31 12:04:45 by aaqlzim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME := convert
 SRCS := main.cpp Scalar.Conversion.cpp
 OBJS := $(SRCS:.cpp=.o)
 
-CXX := g++
+CXX := clang++
 CXXFLAGS := -std=c++98 -Wall -Wextra -Werror
 
 all: $(NAME)

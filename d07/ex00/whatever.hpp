@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   template.hpp                                       :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 11:45:36 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/24 11:46:32 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/03/31 12:21:37 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEMPLATE_HPP
-# define TEMPLATE_HPP
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
 # include <iostream>
 
@@ -27,15 +27,11 @@ void swap(T& a, T& b)
 template <typename T>
 T max(T const & a, T const & b)
 {
-	if ( a == b)
-		return b;
 	return (a > b ? a : b);
 }
 template <typename T>
 T min(T const & a, T const & b)
 {
-	if (a == b)
-		return b;
 	return (a < b ? a : b);
 }
 

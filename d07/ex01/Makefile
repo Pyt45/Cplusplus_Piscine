@@ -6,7 +6,7 @@
 #    By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 11:45:46 by aaqlzim           #+#    #+#              #
-#    Updated: 2021/02/24 11:46:39 by aaqlzim          ###   ########.fr        #
+#    Updated: 2021/03/31 12:05:26 by aaqlzim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME := iter
 SRCS := main.cpp
 OBJS := $(SRCS:.cpp=.o)
 
-CXX := g++
+CXX := clang++
 CXXFLAGS := -std=c++98 -Wall -Wextra -Werror
 
 all: $(NAME)
