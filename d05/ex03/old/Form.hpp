@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 12:59:50 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/04/01 22:07:59 by ayoub            ###   ########.fr       */
+/*   Updated: 2021/02/18 16:55:24 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Form {
 				virtual const char * what() const throw();
 		};
 		Form( void );
-		Form( std::string name, int GradeSign, int GradeExec, std::string target);
+		Form( std::string name, int GradeSign, int GradeExec);
 		Form( Form const & );
 		Form & operator=( Form const & );
 		virtual ~Form( void ) = 0;
@@ -45,7 +45,6 @@ class Form {
 		virtual void		execute( Bureaucrat const & executor ) const;
 	private:
 		std::string const 	_name;
-		std::string			_target;
 		bool				_IsSigned;
 		int			const 	_SignGrade;
 		int			const 	_ExecGrade;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 17:54:18 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/04/01 23:19:02 by ayoub            ###   ########.fr       */
+/*   Updated: 2021/02/19 16:32:17 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ std::string Intern::_names[3] = {
 
 Intern::Intern( void )
 {
-	this->_function[0] = &Intern::_RobotomyRequestForm;
-	this->_function[1] = &Intern::_PresidentialPardonForm;
+	this->_function[0] = &Intern::_PresidentialPardonForm;
+	this->_function[1] = &Intern::_RobotomyRequestForm;
 	this->_function[2] = &Intern::_ShrubberyCreationForm;
 	return ;
 }

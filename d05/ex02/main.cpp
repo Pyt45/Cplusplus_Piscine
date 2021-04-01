@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 11:50:57 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/18 16:47:48 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/04/01 22:56:46 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,32 +17,39 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
+
+void	apply_test(Bureaucrat & b, Form & f)
+{
+	b.signForm(f);
+	std::cout << std::endl;
+	b.executeForm(f);
+	std::cout << std::endl;
+}
+
 int main()
 {
-	Bureaucrat b("Bob", 1);
-	// Form *f = new PresidentialPardonForm("Jimmy");
-	// std::cout << *f << std::endl;
-	// f->beSigned(b);
-	// try {
-	// 	f->execute(b);
-	// }
-	// catch(std::exception & e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// }
-	// delete f;
+    Bureaucrat	bob("Bob", 1);
+    Bureaucrat	jimmy("Jimmy", 30);
+	Bureaucrat	rock("rock", 43);
 
-	Form *f = new ShrubberyCreationForm("Jimmy");
-	std::cout << *f << std::endl;
+	ShrubberyCreationForm	shrub(rock.getName());
+	PresidentialPardonForm	pardon(bob.getName());
+	RobotomyRequestForm		robot(jimmy.getName());
 
-	f->beSigned(b);
+	apply_test(bob, pardon);
+	apply_test(jimmy, robot);
+	apply_test(rock, shrub);
+
+	std::cout << std::endl;
+
 	try {
-		f->execute(b);
-	}
-	catch(std::exception & e)
-	{
+		Bureaucrat	b("jack", 1);
+		RobotomyRequestForm	p("robo");
+		
+		b.executeForm(p);
+		std::cout << std::endl;
+	} catch(std::exception & e) {
 		std::cout << e.what() << std::endl;
 	}
-	delete f;
-	return 0;
+	std::cout << std::endl;
 }

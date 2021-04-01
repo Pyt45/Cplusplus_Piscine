@@ -3,29 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 15:51:10 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/18 16:41:37 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/04/01 22:59:07 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-int const RobotomyRequestForm::_sign = 72;
-int const RobotomyRequestForm::_exec = 45;
 
-RobotomyRequestForm::RobotomyRequestForm( void ): Form("", _sign, _exec)
+RobotomyRequestForm::RobotomyRequestForm( void ): Form("", 72, 45, "")
 {
 	return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( std::string target): Form(target, _sign, _exec)
+RobotomyRequestForm::RobotomyRequestForm( std::string target): Form("Robotomy Request", 72, 45, target)
 {
 	return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src )
+RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ) : Form(src)
 {
 	*this = src;
 	return ;
@@ -33,7 +31,8 @@ RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src )
 
 RobotomyRequestForm & RobotomyRequestForm::operator=( RobotomyRequestForm const & src )
 {
-	static_cast<void>(src);
+	if (this != &src)
+		Form::operator=(src);
 	return *this;
 }
 
@@ -49,9 +48,11 @@ std::string const & RobotomyRequestForm::getTarget() const
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
+	srand(clock());
 	Form::execute(executor);
-	if (rand() & 1)
-		std::cout << getTarget() << "has been robotomized successfully 50\% of the time" << std::endl;
+
+	if (rand() % 1000 + 1 % 2)
+		std::cout << getTarget() << " has been robotomized successfully 50\% of the time" << std::endl;
 	else
 		std::cout << getTarget() << " can not be robotomized" << std::endl;
 }

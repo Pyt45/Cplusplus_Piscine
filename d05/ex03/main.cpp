@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 11:50:57 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/19 16:35:15 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/04/01 23:18:16 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,21 @@
 
 int main()
 {
-	Intern 	somRandomIntern;
-	Bureaucrat b("Bob", 1);
-	Form 	*rrf;
+	Intern 	someRandomIntern;
+	Bureaucrat bob("Bob", 150);
+	Bureaucrat max("Max", 20);
+	Form 	*roboto = NULL;
 
-	rrf = somRandomIntern.makeForm("robotomy request", "Bender");
-	rrf->beSigned(b);
-	try {
-		rrf->execute(b);
-	}
-	catch(std::exception & e) {
-		std::cout << e.what() << std::endl;
-	}
+	roboto = someRandomIntern.makeForm("robotomy request", "Bob");
+    std::cout << roboto->getName() << std::endl;
+    bob.signForm(*roboto);
+    bob.executeForm(*roboto);
+    max.signForm(*roboto);
+    max.executeForm(*roboto);
+    delete roboto;
+
+    roboto = NULL;
+	roboto = someRandomIntern.makeForm("invalid form name", "Max");
+    delete roboto;
 	return 0;
 }

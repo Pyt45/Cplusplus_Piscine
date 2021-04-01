@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 11:50:57 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/12 12:57:15 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/04/01 20:17:40 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,38 +17,44 @@ int main()
 {
 	Bureaucrat b = Bureaucrat("Bob", 1);
 	std::cout << b;
-	b = b - 40;
-	std::cout << b;
-	
-	while (1)
-	{
-		try {
-			std::cout << "Minus -50\n";
-			b = b - 50;
-		}
-		catch(std::exception& e)
-		{
-			std::cout << e.what() << std::endl;
-			break ;
-		}
+	try {
+		b.incrementGrade();
 	}
-	Bureaucrat a = Bureaucrat("Jimmy", 100);
-
-	std::cout << a << std::endl;
-	a = a + 4;
-	std::cout << a << std::endl;
-	while (1)
-	{
-		try {
-			std::cout << "Plus +50\n";
-			a = a + 50;
-		}
-		catch(std::exception& e)
-		{
-			std::cout << e.what() << std::endl;
-			break ;
-		}
+	catch(std::exception & e) {
+		std::cout << e.what() << std::endl;
 	}
-	std::cout << a << std::endl;
+	std::cout << "\n==========================\n";
+	Bureaucrat b1 = Bureaucrat("jim", 150);
+	std::cout << b1;
+	try {
+		b1.decrementGrade();
+	} catch(std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "\n==========================\n";
+	Bureaucrat b2 = Bureaucrat("rock", 40);
+	std::cout << b2;
+	try {
+		b2.incrementGrade();
+		std::cout << b2;
+		b2.incrementGrade();
+		b2.incrementGrade();
+		std::cout << b2;
+	} catch(std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "\n==========================\n";
+	try {
+		Bureaucrat b3 = Bureaucrat("jimmy", -123);
+	} catch(std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "\n==========================\n";
+	try {
+		Bureaucrat b4 = Bureaucrat("jack", 190);
+	} catch(std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "\n==========================\n";
 	return 0;
 }

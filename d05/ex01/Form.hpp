@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 12:59:50 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/15 17:53:50 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/04/01 21:20:27 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,9 @@ class Form {
 		~Form( void );
 		std::string const & getName() const;
 		bool				getSigned() const;
-		int const			getExecGrade() const;
-		int const			getSignGrade() const;
-		void				set_signed();
-		void				beSigned( Bureaucrat const & );
+		int					getExecGrade() const;
+		int					getSignGrade() const;
+		void				beSigned( Bureaucrat const &);
 	private:
 		std::string const 	_name;
 		bool				_IsSigned;

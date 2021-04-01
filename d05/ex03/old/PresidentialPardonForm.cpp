@@ -3,27 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 15:51:02 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/04/01 23:16:55 by ayoub            ###   ########.fr       */
+/*   Updated: 2021/02/18 16:41:46 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
+const int PresidentialPardonForm::_sign = 25;
+const int PresidentialPardonForm::_exec = 5;
 
-PresidentialPardonForm::PresidentialPardonForm( void ) : Form("", 25, 5, "")
+PresidentialPardonForm::PresidentialPardonForm( void ) : Form("", PresidentialPardonForm::_sign, PresidentialPardonForm::_exec)
 {
 	return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("presidential pardon", 25, 5, target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form(target, PresidentialPardonForm::_sign, PresidentialPardonForm::_exec)
 {
 	return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src ) : Form(src)
+PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src )
 {
 	*this = src;
 	return ;
@@ -31,8 +33,7 @@ PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & s
 
 PresidentialPardonForm & PresidentialPardonForm::operator=( PresidentialPardonForm const & src )
 {
-	if (this != &src)
-		Form::operator=(src);
+	static_cast<void>(src);
 	return *this;
 }
 
