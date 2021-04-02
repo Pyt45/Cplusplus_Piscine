@@ -3,23 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 15:54:57 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/04/01 22:12:16 by ayoub            ###   ########.fr       */
+/*   Updated: 2021/04/02 16:32:59 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
 
-Form::Form( void ): _name("default-form"), _SignGrade(1), _ExecGrade(10), _target("default-target")
+Form::Form( void ): _name("default-form"), _SignGrade(1), _ExecGrade(10)
 {
+	 _target = "default-target";
 	_IsSigned = false;
 }
 
-Form::Form( std::string name, int GradeSign, int GradeExec, std::string target): _name(name), _SignGrade(GradeSign), _ExecGrade(GradeExec), _target(target)
+Form::Form( std::string name, int GradeSign, int GradeExec, std::string target): _name(name), _SignGrade(GradeSign), _ExecGrade(GradeExec)
 {
+	_target = target;
 	if (GradeSign < 1 || GradeExec < 1)
 		throw GradeTooLowException();
 	else if (GradeSign > 150 || GradeExec > 150)
@@ -43,8 +45,9 @@ const char * Form::ExceptionNotSigned::what() const throw()
 	return "Form not Signed, yet";
 }
 
-Form::Form( Form const & src ): _name(src.getName()), _SignGrade(src.getSignGrade()), _ExecGrade(src.getExecGrade()), _target(src._target)
+Form::Form( Form const & src ): _name(src.getName()), _SignGrade(src.getSignGrade()), _ExecGrade(src.getExecGrade())
 {
+	_target = src._target; 
 	*this = src;
 	return ;
 }
@@ -96,6 +99,8 @@ void	Form::execute( Bureaucrat const & executor ) const
 		throw Form::ExceptionNotSigned();
 	else if (executor.getGrade() > this->_ExecGrade)
 		throw Form::GradeTooLowException();
+	else
+		action();
 	return ;
 }
 

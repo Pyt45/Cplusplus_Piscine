@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 14:34:51 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/04/01 22:21:24 by ayoub            ###   ########.fr       */
+/*   Updated: 2021/04/02 16:37:48 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ShrubberyCreationForm : public Form {
 		ShrubberyCreationForm  & operator=( ShrubberyCreationForm  const & );
 		~ShrubberyCreationForm( void );
 		
-		void	execute(Bureaucrat const & executor) const;
+		void	action() const;
 		std::string const & getType() const;
 };
 

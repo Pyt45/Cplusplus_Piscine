@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 15:51:02 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/04/01 23:16:55 by ayoub            ###   ########.fr       */
+/*   Updated: 2021/04/02 16:48:02 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ PresidentialPardonForm::PresidentialPardonForm( void ) : Form("", 25, 5, "")
 	return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("presidential pardon", 25, 5, target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("Presidential Pardon", 25, 5, target)
 {
 	return ;
 }
@@ -46,8 +46,8 @@ std::string const & PresidentialPardonForm::getTarget() const
 	return Form::getName();
 }
 
-void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
+void	PresidentialPardonForm::action() const
 {
-	Form::execute(executor);
+	std::string s1 = "hi";
 	std::cout << getTarget() << " has been pardoned by Zafod Beeblebrox." << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 16:40:40 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/04/01 13:44:15 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/04/02 15:47:18 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,13 @@ int		getPrecision(std::string str)
 
 int 	check_arg(std::string const &str)
 {
+	std::stringstream ss;
 	double val = atof(str.c_str());
+	ss << val;
 	if (str.length() == 1 && std::isprint(str[0])
 	&& (str[0] > '9' || str[0] < '0'))
 		return (1);
-	else if (str.length() > 1 && !atof(str.c_str()))
+	else if ((str.length() > 1 && !val ) || (ss.str()).length() != str.length())
 		return (1);
 	return (0);
 }

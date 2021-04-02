@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 11:50:57 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/04/01 22:56:46 by ayoub            ###   ########.fr       */
+/*   Updated: 2021/04/02 16:39:59 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ int main()
 	std::cout << std::endl;
 
 	try {
-		Bureaucrat	b("jack", 1);
+		Bureaucrat	b("jack", 150);
 		RobotomyRequestForm	p("robo");
-		
+
 		b.executeForm(p);
 		std::cout << std::endl;
 	} catch(std::exception & e) {

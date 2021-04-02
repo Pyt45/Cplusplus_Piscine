@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 14:34:45 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/04/01 22:18:54 by ayoub            ###   ########.fr       */
+/*   Updated: 2021/04/02 16:37:39 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class RobotomyRequestForm : public Form {
 		RobotomyRequestForm & operator=( RobotomyRequestForm const & );
 		~RobotomyRequestForm( void );
 
-		void	execute(Bureaucrat const & executor) const;
+		void	action() const;
 		std::string const & getTarget() const;
 };
 

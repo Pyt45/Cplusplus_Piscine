@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 11:50:57 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/04/01 23:18:16 by ayoub            ###   ########.fr       */
+/*   Updated: 2021/04/02 16:43:57 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,20 @@ int main()
 
 	roboto = someRandomIntern.makeForm("robotomy request", "Bob");
     std::cout << roboto->getName() << std::endl;
+    std::cout << std::endl;
     bob.signForm(*roboto);
+    std::cout << std::endl;
     bob.executeForm(*roboto);
+    std::cout << std::endl;
     max.signForm(*roboto);
+    std::cout << std::endl;
     max.executeForm(*roboto);
+    std::cout << std::endl;
     delete roboto;
-
-    roboto = NULL;
-	roboto = someRandomIntern.makeForm("invalid form name", "Max");
-    delete roboto;
+    std::cout << std::endl;
+    Form *invalid = NULL;
+	invalid = someRandomIntern.makeForm("invalid form name", "Max");
+    std::cout << std::endl;
+    delete invalid;
 	return 0;
 }

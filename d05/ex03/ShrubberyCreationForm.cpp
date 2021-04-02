@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 15:51:16 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/04/01 23:17:26 by ayoub            ###   ########.fr       */
+/*   Updated: 2021/04/02 16:37:52 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( void ): Form("", 145, 137, "")
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): Form("shrubbery creation", 145, 137, target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target): Form("Shrubbery Creation", 145, 137, target)
 {
 	return ;
 }
@@ -46,9 +46,8 @@ std::string const & ShrubberyCreationForm::getType() const
 	return Form::getName();
 }
 
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+void	ShrubberyCreationForm::action() const
 {
-	Form::execute(executor);
 	std::ofstream	o_file;
 	std::string		out_file = getType() + "_shrubbery";
 

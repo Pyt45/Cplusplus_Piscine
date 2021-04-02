@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 12:59:50 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/04/01 22:07:59 by ayoub            ###   ########.fr       */
+/*   Updated: 2021/04/02 16:37:24 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ class Form {
 		int					getSignGrade() const;
 		void				set_signed();
 		void				beSigned( Bureaucrat const & );
-		virtual void		execute( Bureaucrat const & executor ) const;
+		void				execute( Bureaucrat const & executor ) const;
+		virtual void		action() const = 0;
 	private:
 		std::string const 	_name;
 		std::string			_target;

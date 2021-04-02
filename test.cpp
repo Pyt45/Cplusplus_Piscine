@@ -60,57 +60,22 @@
 
 class Base {
 	public:
-		Base() {
-			std::cout << "hello\n";
-		}
-		Base(int b) : _b(b) {
-			std::cout << "Base" << std::endl;
-		}
-		void	print(void) {
-			std::cout << "Attack with " << _m << " points and " << _c << std::endl;
-		}
-	protected:
-		int _b;
-		int _m;
-		int _c;
+		virtual ~Base() = 0;
 };
 
-class Drived : virtual public Base {
-	public:
-		Drived() {}
-		Drived(int b) : Base(b) {
-			Base::_m = 10;
-			Base::_c = 12;
-			std::cout << "Drived" << std::endl;
-		}
-};
+Base::~Base(){
+	std::cout << "Base destructor" << std::endl;
+}
 
-class Drived1 : virtual public Base {
+class Drived : public Base {
 	public:
-		Drived1() {}
-		Drived1(int b) : Base(b) {
-			Base::_m = 15;
-			Base::_c = 14;
-			std::cout << "Drived1" << std::endl;
-		}
-};
-
-class Drived2 : public Drived, public Drived1 {
-	public:
-		Drived2() {}
-		Drived2(int b) : Base(b), Drived(b), Drived1(b) {
-			_m = this->Drived::_m;
-			_c = Drived1::_c;
-			std::cout << "Drived2" << std::endl;
-		}
-		void print(void)
-		{
-			Drived1::print();
+		~Drived() {
+			std::cout << "Drived destructor" << std::endl;
 		}
 };
 
 int main(){
-	Drived2 b(5);
+	Drived *b = new Drived();
 
-	b.print();
+	delete b;
 }

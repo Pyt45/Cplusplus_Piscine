@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 15:54:57 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/04/01 21:20:10 by ayoub            ###   ########.fr       */
+/*   Updated: 2021/04/02 13:31:44 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ Form::Form( void ): _name("default-form"), _SignGrade(1), _ExecGrade(10)
 	_IsSigned = false;
 }
 
-Form::Form( std::string name, int GradeSign, int GradeExec): _name(name), _SignGrade(GradeSign), _ExecGrade(GradeExec), _IsSigned(false)
+Form::Form( std::string name, int GradeSign, int GradeExec): _name(name), _SignGrade(GradeSign), _ExecGrade(GradeExec)
 {
+	_IsSigned = false;
 	if (GradeSign < 1 || GradeExec < 1)
 		throw GradeTooLowException();
 	else if (GradeSign > 150 || GradeExec > 150)
@@ -36,8 +37,9 @@ const char * Form::GradeTooLowException::what() const throw()
 	return "Grade is too Low";
 }
 
-Form::Form( Form const & src ): _name(src.getName()), _SignGrade(src.getSignGrade()), _ExecGrade(src.getExecGrade()), _IsSigned(src.getSigned())
+Form::Form( Form const & src ): _name(src.getName()), _SignGrade(src.getSignGrade()), _ExecGrade(src.getExecGrade())
 {
+	_IsSigned = src.getSigned();
 	*this = src;
 	return ;
 }
