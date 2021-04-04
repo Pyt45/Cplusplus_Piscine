@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 16:40:40 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/04/02 15:47:18 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/04/04 13:19:59 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,68 @@ int		getPrecision(std::string str)
 
 int 	check_arg(std::string const &str)
 {
+	if (str == "inf" || str == "inff"
+	|| str == "+inf" || str == "+inff")
+		return (0);
+	std::string s = str;
+	std::string s1;
+	std::string s2;
+	std::string s3 = str;
+	std::string s4 = str;
 	std::stringstream ss;
-	double val = atof(str.c_str());
-	ss << val;
-	if (str.length() == 1 && std::isprint(str[0])
+	size_t i = s.find('f');
+	size_t j = s.find('.');
+	if (i != std::string::npos)
+	{
+		s1 = s.substr(0, i);
+		s2 = s.erase(0, i + 1);
+		std::string s5 = str.substr(i, str.length());
+		// std::cout << "s1 = " << s1 << std::endl;
+		// std::cout << "s5 = " << s1 << std::endl;
+		double val = atof(s5.c_str());
+		ss << val;
+		// std::cout << val << std::endl;
+		if (s5.length() > 1)
+		{
+			for (size_t i = 0; i < s5.length(); i++) {
+					if (s5[i] > '9' || s5[i] < '0')
+						return (1);
+			}
+		}
+		else if (s5.length() == 1)
+		{
+			if (s1[s1.length() - 1] >= '0' && s1[s1.length() - 1] <= '9' && s5 == "f")
+			{
+				// std::cout << s1[s1.length() - 1] << std::endl;
+				return (0);
+			}
+			else
+				return (1);
+		}
+		else if (s1.length() == 0)
+			return (1);
+		else if (s2.find('f') != std::string::npos)
+			return (1);
+		return (0);
+	}
+	else if (j != std::string::npos)
+	{
+		std::string spt = s3.substr(0, j + 1);
+		std::string sptp = s3.substr(j + 1, str.length());
+		if (sptp.find('.') != std::string::npos)
+			return (1);
+		else {
+			for (size_t i = 0; i < sptp.length(); i++) {
+				if (sptp[i] > '9' || sptp[i] < '0')
+					return (1);
+			}
+		}
+		return (0);
+	}
+	else if (str.length() == 1 && std::isprint(str[0])
 	&& (str[0] > '9' || str[0] < '0'))
 		return (1);
-	else if ((str.length() > 1 && !val ) || (ss.str()).length() != str.length())
+	else if (str.length() > 1 && !atof(str.c_str()))
 		return (1);
 	return (0);
 }
@@ -123,6 +178,6 @@ int		main(int argc, char **argv)
 		}
 	}
 	else
-		std::cout << "add another argument to run this program 😜" << std::endl;
+		std::cout << "must be only one argument to run this program 😜" << std::endl;
 	return 0;
 }
