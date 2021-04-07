@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 16:04:27 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/31 11:54:39 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/04/06 15:58:27 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ int		main(void)
 	Base *b = generate();
 	identify_from_pointer(b);
 	identify_from_reference(*b);
+	delete b;
 	return 0;
 }

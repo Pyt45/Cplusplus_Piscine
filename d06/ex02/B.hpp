@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 16:04:48 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/23 16:33:33 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/04/06 13:26:13 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,6 @@
 
 # include "Base.hpp"
 
-class B: public Base {
-	public:
-		B( void );
-		B( B const & );
-		B & operator=( B const & );
-		~B( void );
-		virtual void print() const;
-};
+class B: public Base { };
 
 #endif

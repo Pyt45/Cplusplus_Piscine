@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 16:04:33 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/23 16:33:04 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/04/06 13:26:07 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 class Base {
 	public:
 		virtual ~Base() {}
-		virtual void print() const = 0;
 };
 
 #endif
