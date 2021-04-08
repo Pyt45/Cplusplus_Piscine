@@ -6,31 +6,33 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 11:45:56 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/31 12:15:39 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/04/08 15:15:30 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 
-double     mul(int a)
+class Awesome
 {
-    a *= 2;
-    std::cout << "a * 2 = " << static_cast<double>(a) << std::endl;
-    return static_cast<double>(a);
-}
+    public:
+        Awesome( void ) : _n( 42 ) { return; }
+        int get( void ) const { return this->_n; }
+    private:
+        int _n;
+};
+std::ostream & operator<<( std::ostream & o, Awesome const & rhs ) { o << rhs.get(); return o; }
+template< typename T>
+void print( T const & x ) { std::cout << x << std::endl; return; }
+template< typename T>
+void print1( T  x ) { std::cout << x << std::endl; return; }
 
-int     mul(double i)
-{
-    i *= 3;
-    std::cout << "i * 3 = " << static_cast<int>(i) << std::endl;
-    return static_cast<int>(i);
-}
+int main() {
+    int tab[] = { 0, 1, 2, 3, 4 }; // <--- I never understood why you can't write int[] tab. Wouldn't that make more sense?
+    Awesome tab2[5];
 
-int main()
-{
-    double arr[6] = {1, 2, 3, 4, 5, 6};
-    int     arr1[6] = {1, 2, 3, 4, 5, 6};
-    ::iter(arr, 6, static_cast<int (*)(double)>(mul));
-    std::cout << "===================================" << std::endl;
-    ::iter(arr1, 6, static_cast<double (*)(int)>(mul));
+    // iter( tab, 5, print);
+    iter( tab, 5, print1 );
+    iter( tab2, 5, print1 );
+
+    return 0;
 }

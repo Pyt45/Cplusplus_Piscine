@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 11:46:07 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/31 12:39:54 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/04/08 15:36:05 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ class Array {
 			_size = n;
 		}
 		Array( Array const & src ) {
+			_size = src.size();
+			_arr = new T[src.size()];
+			for (unsigned int i = 0; i < src.size(); i++)
+				this->_arr[i] = src._arr[i];
 			*this = src;
 		}
 		Array & operator=( Array const & src ) {

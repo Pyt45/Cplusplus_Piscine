@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 11:45:51 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/02/24 11:46:34 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/04/08 15:05:51 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include <iostream>
 
-template<typename T1, typename T2>
-void    iter(T1 *arr, int size, T2 (*func)(T1))
+template<typename T>
+void    iter(T *arr, int size, void (*func)(T const &))
 {
     for (int i = 0; i < size; i++)
         func(arr[i]);
