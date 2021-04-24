@@ -2,6 +2,8 @@
 #include <iostream>
 #include <unistd.h>
 #include <ctime>
+#include <stack>
+#include <deque>
 
 // class Test {
 // 	private:
@@ -58,7 +60,7 @@
 // 	std::cout << (float)time_req / CLOCKS_PER_SEC << " s" << std::endl;
 // }
 
-class Base {
+/*class Base {
 	public:
 		virtual ~Base() = 0;
 };
@@ -72,10 +74,30 @@ class Drived : public Base {
 		~Drived() {
 			std::cout << "Drived destructor" << std::endl;
 		}
+};*/
+
+template < typename T, class Container = std::deque<T> >
+class msstack : public std::stack<T, Container> {
+	public:
+		typedef typename std::stack<T, Container>::container_type::iterator iterator;
+		msstack() {}
+		~msstack() {}
+		iterator begin() {
+			return this->c.begin();
+		}
+		iterator end() {
+			return this->c.end();
+		}
 };
 
 int main(){
-	Drived *b = new Drived();
+	msstack<int> s;
+	s.push(1);
+	s.push(2);
+	s.push(3);
 
-	delete b;
+	msstack<int>::iterator it = s.begin();
+	msstack<int>::iterator et = s.end();
+	std::cout << *it << std::endl;
+	std::cout << *et << std::endl;
 }
