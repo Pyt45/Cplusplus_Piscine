@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 11:44:44 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/04/08 13:05:36 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/04/25 00:44:01 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,17 @@ class Span {
             else
                 throw FullSpanException();
         }
+        /*template < template < typename > class T >
+        void addNumber(T<int*> begin, T<int*> end)
+        {
+            long int range = end - begin;
+            if (range < 0)
+                throw std::invalid_argument("begin adress is bigger than the end adress");
+            if (range + this->_array.size() > this->_N)
+                throw FullSpanException();
+            this->_array.insert(this->_array.end(), begin, end);
+            this->_isSorted = false;
+        }*/
     private:
         std::vector<int> _v;
         unsigned int _n;
