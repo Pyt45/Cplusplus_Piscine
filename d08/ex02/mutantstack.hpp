@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 11:45:07 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/31 15:29:10 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/04/28 13:53:56 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,49 +16,50 @@
 # include <iostream>
 # include <stdexcept>
 # include <stack>
+# include <deque>
 
-template<class T>
-class MutantStack : public std::stack<T>
+template<class T, class Container = std::deque<T> >
+class MutantStack : public std::stack<T, Container>
 {
     public:
-        typedef typename std::stack<T>::container_type::iterator iterator;
-        typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
-        typedef typename std::stack<T>::container_type::const_iterator const_iterator;
-        typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator;
+        typedef typename std::stack<T, Container>::container_type::iterator iterator;
+        typedef typename std::stack<T, Container>::container_type::reverse_iterator reverse_iterator;
+        typedef typename std::stack<T, Container>::container_type::const_iterator const_iterator;
+        typedef typename std::stack<T, Container>::container_type::const_reverse_iterator const_reverse_iterator;
 
-        MutantStack<T>( void ) {}
-        MutantStack<T>( MutantStack<T> const & src ) : std::stack<T>(src){}
-        MutantStack<T> & operator=( MutantStack<T> const & src ) {
+        MutantStack<T, Container>( void ) {}
+        MutantStack<T, Container>( MutantStack<T> const & src ) : std::stack<T>(src){}
+        MutantStack<T, Container> & operator=( MutantStack<T> const & src ) {
             if (this != &src)
                 this->c = src.c;
         }
-        ~MutantStack<T>( void ) {
+        ~MutantStack<T, Container>( void ) {
             return ;
         }
 
         iterator begin(){
-            return std::stack<T>::c.begin();
+            return this->c.begin();
         }
         const_iterator begin() const {
-            return std::stack<T>::c.begin();
+            return this->c.begin();
         }
         iterator end() {
-            return std::stack<T>::c.end();
+            return this->c.end();
         }
         const_iterator end() const {
-            return std::stack<T>::c.end();
+            return this->c.end();
         }
         reverse_iterator rbegin() {
-            return std::stack<T>::c.rbegin();
+            return this->c.rbegin();
         }
         const_reverse_iterator rbegin() const {
-            return std::stack<T>::c.rbegin();
+            return this->c.rbegin();
         }
         reverse_iterator rend() {
-            return std::stack<T>::c.rend();
+            return this->c.rend();
         }
         const_reverse_iterator rend() const {
-            return std::stack<T>::c.rend();
+            return this->c.rend();
         }
 };
 

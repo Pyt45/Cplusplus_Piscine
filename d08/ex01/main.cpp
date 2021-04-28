@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 11:44:32 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/31 15:20:09 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/04/28 14:08:31 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,18 @@ int     main(void)
             std::cout << e.what() << std::endl;
         }
     }
+    std::cout << "\n============================\n\n";
     {
-        Span sp = Span(10001);
-        std::vector<int> v(9999);
+        Span sp = Span(10000);
+        std::vector<int> v(10000);
         srand(clock());
-        for (int i = 0; i < 9999; i++)
-            v.push_back(rand() % 9999);
+        for (int i = 0; i < 10000; i++)
+            v.at(i) = rand() % 10000;
         try {
             sp.addNumber(v.begin(), v.end());
             std::cout << sp.shortestSpan() << std::endl;
             std::cout << sp.longestSpan() << std::endl;
-			// sp.addNumber(5);
+			sp.addNumber(5);
         } catch(std::exception & e) {
             std::cout << e.what() << std::endl;
         }

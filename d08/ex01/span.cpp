@@ -6,7 +6,7 @@
 /*   By: aaqlzim <aaqlzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 11:44:39 by aaqlzim           #+#    #+#             */
-/*   Updated: 2021/03/31 15:13:59 by aaqlzim          ###   ########.fr       */
+/*   Updated: 2021/04/28 14:07:38 by aaqlzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ Span::~Span( void ) {
 }
 
 void    Span::addNumber(int num) {
-    std::cout << "_v = " << _v.size() << " _n : " << _n << std::endl;
     if (_v.size() < _n)
         _v.push_back(num);
     else
